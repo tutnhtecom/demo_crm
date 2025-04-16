@@ -25,7 +25,7 @@
                         <label class="form-label">Tên trạng thái</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input id="input_sources_name" type="text" class="form-control" name="status_name"
+                        <input id="input_status_name" type="text" class="form-control" name="status_name"
                             placeholder="Nhập tên trạng thái" />
                         <!--end::Input-->
                     </div>
@@ -143,7 +143,7 @@
                 <!--end::Modal body-->
                 <!--begin::Modal footer-->
                 <div class="card-footer d-flex gap-4 justify-content-center p-4">
-                    <button id="btn_add_new_sources" type="button" class="btn btn-primary">Thêm mới</button>
+                    <button id="btn_add_new_status" type="button" class="btn btn-primary">Thêm mới</button>
                     <button type="button" data-bs-dismiss="modal" class="btn btn-light">Hủy</button>
                 </div>
                 <!--end::Modal footer-->
