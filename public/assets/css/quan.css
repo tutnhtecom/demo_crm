@@ -167,14 +167,14 @@
 .banner-intro{
     width: auto;
     height: 100vh;
-    /* background-color: #034EA2; */
+    background-color: #034EA2;
     background-image: url("../image/banner.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;    
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 50px;
+    padding:150px 50px;
 }
 
 .banner-intro .banner-intro-logo{

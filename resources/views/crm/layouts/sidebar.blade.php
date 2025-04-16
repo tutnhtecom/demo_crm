@@ -10,9 +10,9 @@
             <!--end::Sidebar toggle-->
 
             <!--begin::Logo-->
-            <a href="{{ route('crm.leads.index') }}" class="app-sidebar-logo align-self-center d-block">
-                <img alt="Logo" src="/assets/crm/media/logos/logo.png" class="theme-light-show object-fit-scale w-100" />
-                <img alt="Logo" src="/assets/crm/media/logos/logo.png" class="theme-dark-show object-fit-scale w-100" />
+            <a href="{{ route('crm.leads.index') }}" class="app-sidebar-logo align-self-center d-block text-center">
+                <img alt="Logo" src="/assets/crm/media/logos/logo.png" class="theme-light-show object-fit-scale w-75" />
+                <img alt="Logo" src="/assets/crm/media/logos/logo.png" class="theme-dark-show object-fit-scale w-75" />
             </a>
             <!--end::Logo-->
 

@@ -1,4 +1,3 @@
-{{-- <div id="banner-lead" class="banner-intro"> --}}
 <div id="banner-lead" class="banner-intro" style="display:none">
     <div class="banner-intro-logo">
         <img src="/assets/image/logo.png" alt="">
