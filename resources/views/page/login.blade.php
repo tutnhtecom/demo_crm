@@ -14,16 +14,16 @@
 		<div class="container h-100">
 			<div class="row justify-content-sm-center h-100">
 				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9 d-general">
-					<div class="text-center my-5 d-logo">
+					<div class="text-center d-logo mt-4">
                         <img src="/assets/image/logo.png" alt="" id="logo-register-profile">
 					</div>
-                    <div class="text-center mb-3  d-logo text-light">
-                        <span style="color:#fff">
-                        Chào mừng bạn đến với trang đăng ký hồ sơ tuyển sinh của trường Đại học Mở Thành Phố Hồ Chí Minh
-                        </span>
+                    <div class="text-center mb-3 d-logo text-light">
+                        <h6 style="color:#fff">
+                        	<strong>Chào mừng bạn đến với trang đăng ký hồ sơ tuyển sinh</strong>
+                        </h6>
 					</div>
 					<div class="card shadow-lg">
-						<div class="card-body py-5">
+						<div class="card-body pt-3 pb-5">
 							<div class="text-center">
                                 <h1 class="card-title mb-4">Đăng nhập để theo dõi kết quả hồ sơ</h1>
                             </div>
