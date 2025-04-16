@@ -1,0 +1,1230 @@
+.disable{
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.hidden{
+    display: none !important;
+}
+.date-wrapper{
+    background-color: #fff !important;
+    padding-top: 0.55rem !important;
+    padding-bottom: 0.55rem !important;
+    height: 34px;
+}
+
+.date-wrapper:hover{
+    background-color: #fff !important;
+}
+
+.date-wrapper #min-date{
+    border: none;
+    outline: none;
+    color: #A1A5B7;
+    font-family: Roboto;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.date-wrapper #max-date{
+    border: none;
+    outline: none;
+    color: #A1A5B7;
+    font-family: Roboto;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.date-wrapper #min-date::placeholder{
+    color: #A1A5B7;
+    font-family: Roboto;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.date-wrapper #max-date::placeholder{
+    color: #A1A5B7;
+    font-family: Roboto;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.error-input{
+    color: red;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 14px;
+    display: none;
+    width: max-content;
+    margin-bottom: 0;
+}
+
+.box {
+    display: inline-block; /* Hiển thị ngang hàng */
+    width: 45%; /* Định kích thước */
+    padding: 10px;
+    text-align: center;
+}
+
+.border-error{
+    border: 1px solid red !important;
+}
+
+.show-error{
+    display: block !important;
+}
+
+.btn-send-noti-wrapper{
+    position:relative;
+    height:43px;
+    background:#034EA2;
+    border-radius:5px;
+}
+
+#loader-btn-send-noti {
+    position: absolute;
+    left: 44%;
+    bottom: 30%;
+    transform: translateY(50%);
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    display: none;
+}
+
+
+.price-name-lead-wrapper .select2-container{
+    pointer-events: none;
+}
+
+.price-name-lead-wrapper .select2-selection{
+    background-color: #F4F4F4;
+}
+
+#table-employees_wrapper .dt-length{
+    padding: 10px;
+}
+
+#table-employees_wrapper .dt-info{
+    padding: 10px;
+}
+
+#table-employees_wrapper .dt-paging{
+    padding: 0 10px 10px 10px;
+}
+
+.tab_notification_table .nav-item:nth-child(2) .nav-link{
+    border-left: 1px solid #F4F4F4;
+    border-radius: 0;
+}
+
+#notification_table_wrapper .dt-info{
+    padding: 10px;
+}
+
+#notification_table_wrapper .dt-length{
+    padding: 10px;
+}
+
+.noti_img img{
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.modal-content{
+    position: relative;
+}
+
+.modal-content .btn-close{
+    position: absolute;
+    right: 18px;
+    top: 20px;
+    z-index: 2;
+}
+
+.modal_delete .modal-content{
+    position: relative;
+}
+
+.modal_delete .modal-content .btn-close{
+    position: absolute;
+    right: 18px;
+    top: 20px;
+    z-index: 2;
+}
+.notice-text{
+    word-wrap: break-word;
+}
+.notice-text > span{
+    width: 100%;
+}
+
+.btn_toggle_wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.toggle__input {
+    display: none;
+}
+
+.toggle__label {
+    display: block;
+    width: 40px;
+    height: 20px;
+    background-color: #D9D9D9;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle__input:checked + .toggle__label::after {
+    left: 20px;
+}
+
+.toggle__input:checked + .toggle__label {
+    background-color: #034EA2;
+}
+
+.toggle__label::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: left 0.3s ease;
+}
+
+#table_students_wrapper .dt-length{
+    padding: 10px;
+}
+
+#table_students_wrapper .dt-info{
+    padding: 10px;
+}
+
+#table_students_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.select2-results__option.select2-results__option--highlighted .wrap:before{
+    color: var(--bs-primary);
+    content: "\f26c";
+}
+.buttons-collection{
+    --bs-form-select-bg-img: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%237E8299' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e);
+    display: block;
+    width: 100%;
+    padding: 0.775rem 3rem 0.775rem 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--bs-gray-700);
+    background-color: var(--bs-body-bg);
+    background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px 12px;
+    border: 1px solid var(--bs-gray-300);
+    border-radius: 5px;
+    box-shadow: false;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+}
+
+.style_input_role{
+    width: 100%;
+    padding: 5px 20px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+}
+
+.style_input_role::placeholder{
+    font-size: 16px;
+}
+
+#table_status_wrapper .dt-length{
+    padding: 10px;
+}
+
+#table_status_wrapper .dt-info{
+    padding: 10px;
+}
+
+#table_status_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+#notification_table_draft_wrapper .dt-length{
+    padding: 10px;
+}
+
+#notification_table_draft_wrapper .dt-info{
+    padding: 10px;
+}
+
+#notification_table_draft_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+#notification_table_send_wrapper .dt-length{
+    padding: 10px;
+}
+
+#notification_table_send_wrapper .dt-info{
+    padding: 10px;
+}
+
+#notification_table_send_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+.app-overview-stats .symbol{
+    min-width: 50px;
+    text-align: center;
+}
+
+.group_input_wrapper label{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.group_input_wrapper #name_group_input{
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.noti_price_list_container .select2-container{
+    display: none;
+}
+
+.noti_price_list_container:has(#candidate_checkbox:checked) #select_leads_price_list+.select2-container{
+    display: block;
+}
+
+.noti_price_list_container:has(#group_checkbox:checked) #select_leads_price_list_group+.select2-container{
+    display: block;
+}
+
+#createExampleEmailModal .modal_wrapper{
+    padding: 50px;
+    max-width: 1200px!important;
+}
+
+#email_template_form #email_template_type{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+#email_template_form #email_template_type:focus{
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(3, 78, 162, 0.5);
+}
+
+#email_template_form #email_template_title{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+#email_template_form #email_template_title:focus{
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(3, 78, 162, 0.5);
+}
+
+#email_template_form #email_template_fileName{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+#email_template_form #email_template_fileName:focus{
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(3, 78, 162, 0.5);
+}
+
+#email_template_form label{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.modal_exam_email .modal_wrapper{
+    padding: 50px;
+    max-width: 1200px!important;
+}
+
+.modal_exam_email .email_template_edit_type{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.modal_exam_email .email_template_edit_type:focus{
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(3, 78, 162, 0.5);
+}
+
+.modal_exam_email .email_template_edit_title{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.modal_exam_email .email_template_edit_title:focus{
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(3, 78, 162, 0.5);
+}
+
+.modal_exam_email .email_template_edit_fileName{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.modal_exam_email .email_template_edit_fileName:focus{
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(3, 78, 162, 0.5);
+}
+
+.modal_exam_email label{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.container_guide_wrapper .table_note_guide table{
+    width: 35%;
+}
+
+.container_guide_wrapper .table_note_guide thead td{
+    border-width: 1px;
+    padding: 5px;
+    font-weight: 700;
+    color: #fff !important;
+    background-color: #034EA2;
+}
+
+.container_guide_wrapper .table_note_guide thead td::after{
+    display: none;
+}
+
+.container_guide_wrapper .table_note_guide tbody td{
+    border-width: 1px !important;
+    padding: 5px !important;
+}
+
+.container_guide_wrapper .btn_guide_key{
+    width: 100px;
+    outline: none;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #034EA2;
+    color: #fff;
+    font-weight: 500;
+}
+
+.select_user_send_to_wrapper .select2-selection {
+    height: 44px;
+}
+
+.select_user_send_to_wrapper .select2-selection .select2-selection__rendered{
+    font-size: 1.1rem;
+}
+
+table.dataTable > thead > tr > th{
+    vertical-align: middle;
+}
+.table-responsive .dt-container div.dt-buttons > .dt-button{
+    border-color: var(--bs-primary);
+    background-color: var(--bs-primary);
+    color: var(--bs-primary-inverse);
+}
+.table-responsive .dt-container .dt-layout-end div.dt-buttons > .dt-button{
+    outline: none;
+    border-color: var(--bs-primary);
+    background-color: var(--bs-primary);
+    border-radius: 0.35rem;
+}
+
+.table-responsive .dt-container div.dt-buttons > .dt-button:hover,
+.table-responsive .dt-container .dt-layout-end div.dt-buttons > .dt-button:hover{
+    border-color: var(--bs-primary-active);
+    background-color: var(--bs-primary-active);
+}
+
+
+.select2-selection__rendered {
+    white-space: normal !important; /* Cho phép hiển thị nhiều dòng */
+    max-height: 100px; /* Giới hạn chiều cao (tùy chỉnh theo ý bạn) */
+    overflow-y: auto; /* Thêm thanh cuộn nếu quá dài */
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    margin: 2px 5px; /* Khoảng cách giữa các lựa chọn */
+    white-space: nowrap; /* Giữ nội dung mỗi lựa chọn không bị xuống dòng */
+}
+
+#table_supports_wrapper .dt-length{
+    padding: 10px;
+}
+
+#table_supports_wrapper .dt-info{
+    padding: 10px;
+}
+
+#table_supports_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+#task_target_table_wrapper .dt-length{
+    padding: 10px;
+}
+
+#task_target_table_wrapper .dt-info{
+    padding: 10px;
+}
+
+#task_target_table_wrapper .dt-paging{
+    padding: 10px;
+}
+
+.custom-file-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+}
+
+#file-upload {
+    display: none; /* Ẩn input mặc định */
+}
+
+.custom-upload-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #0056b3;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.custom-upload-btn:hover {
+    background-color: #007bff;
+}
+
+.upload-icon {
+    font-size: 18px;
+}
+
+#file-name {
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+}
+
+.custom-file-upload {
+    display: none;
+}
+
+#edit_employee_password:focus {
+    border-color: #E1E3EA;
+    outline: none;
+}
+
+#affiliate_sources_table_wrapper .dt-length,
+#affiliate_sources_table_wrapper .dt-info{
+    padding: 10px;
+}
+
+#affiliate_sources_table_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+.border-and-color{
+    border-bottom: 1px solid #ccc;
+}
+
+/* #table_expense th,
+#table_expense td{
+    border-width: 1px;
+} */
+
+.table-sources-documents th,
+.table-sources-documents td{
+    border-width: 1px !important;
+}
+
+.table:not(.table-bordered) .table-sources-documents tbody tr:last-child td{
+    border-bottom: solid !important;
+    border-width: 1px !important;
+    border-color: #888 !important;
+}
+
+#table_academic_terms_wrapper .dt-length,
+#table_academic_terms_wrapper .dt-info{
+    padding: 10px;
+}
+
+#table_academic_terms_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+.employees_key_contact_wrapper{
+    max-height: 240px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.style_font_text_employees{
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#table_task_of_employees_wrapper .dt-length,
+#table_task_of_employees_wrapper .dt-info{
+    padding: 10px;
+}
+
+#table_task_of_employees_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+/* Đơn vị liên kết */
+#sources-form-info .input-form{
+    padding: 3px 10px;
+    border: none;
+    background: none;
+}
+#sources-form-info .input-form:focus{
+    background-color: #fff;
+}
+
+.bg_admin{
+    background-color:rgba(255, 86, 48, 0.15)!important;
+}
+tr.table_dropoff_value{
+    display: none;
+}
+
+.header-notification{
+    padding: 10px;
+    width: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.header-notification .notification-card{
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: rgba(230, 238, 246, 1);
+}
+
+.header-notification .notification-card-content{
+    display: -webkit-box; /* Sử dụng layout dạng hộp linh hoạt */
+    -webkit-line-clamp: 1; /* Giới hạn số dòng (ở đây là 2 dòng) */
+    -webkit-box-orient: vertical; /* Thiết lập hướng hộp dọc */
+    overflow: hidden; /* Ẩn phần nội dung vượt quá */
+    text-overflow: ellipsis; /* Thêm dấu "..." vào cuối nội dung bị cắt */
+    font-size: 12px !important;
+    margin-bottom: 10px;
+}
+
+.header-notification .notification-card-content h1,
+.header-notification .notification-card-content h2,
+.header-notification .notification-card-content h3,
+.header-notification .notification-card-content h4,
+.header-notification .notification-card-content h5,
+.header-notification .notification-card-content h6,
+.header-notification .notification-card-content p {
+    font-size: 12px !important;
+    margin: 0 !important;
+}
+
+body.is_not_admin .app-sidebar .menu .menu-sub .menu-link{
+    display: none;
+}
+
+body.crm_system_email .app-sidebar .menu .menu-sub .menu-link.crm_system_email,
+body.crm_system_status .app-sidebar .menu .menu-sub .menu-link.crm_system_status,
+body.crm_custom_field .app-sidebar .menu .menu-sub .menu-link.crm_custom_field,
+body.crm_system_sources .app-sidebar .menu .menu-sub .menu-link.crm_system_sources,
+body.crm_major_subject .app-sidebar .menu .menu-sub .menu-link.crm_major_subject,
+body.crm_role_roleList .app-sidebar .menu .menu-sub .menu-link.crm_role_roleList,
+body.crm_task_target .app-sidebar .menu .menu-sub .menu-link.crm_task_target,
+body.crm_task_list .app-sidebar .menu .menu-sub .menu-link.crm_task_list,
+body.crm_employees_list .app-sidebar .menu .menu-sub .menu-link.crm_employees_list,
+body.crm_notification_groups .app-sidebar .menu .menu-sub .menu-link.crm_notification_groups,
+body.crm_notification_pricelist .app-sidebar .menu .menu-sub .menu-link.crm_notification_pricelist,
+body.crm_notification_create .app-sidebar .menu .menu-sub .menu-link.crm_notification_create,
+body.crm_notification_list .app-sidebar .menu .menu-sub .menu-link.crm_notification_list,
+body.crm_request_support .app-sidebar .menu .menu-sub .menu-link.crm_request_support,
+body.crm_official_student .app-sidebar .menu .menu-sub .menu-link.crm_official_student,
+body.crm_leads_index .app-sidebar .menu .menu-sub .menu-link.crm_leads_index,
+body.crm_affiliate_sources .app-sidebar .menu .menu-sub .menu-link.crm_affiliate_sources,
+body.crm_academic_terms .app-sidebar .menu .menu-sub .menu-link.crm_academic_terms,
+body.crm_leads_statistical .app-sidebar .menu .menu-sub .menu-link.crm_leads_statistical,
+body.crm_education_type .app-sidebar .menu .menu-sub .menu-link.crm_education_type{
+    display: flex;
+}
+
+
+  .hte_loading_wrapper{
+    text-align:center;
+  }
+
+  .hte_spanner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #2a2a2a55;
+    display:block;
+    text-align:center;
+    color: #FFF;
+    z-index: 11000;
+    visibility: hidden;
+  }
+
+  .hte_overlay{
+    position: fixed;
+      width: 100%;
+      height: 100%;
+    background: rgba(0,0,0,0.5);
+    visibility: hidden;
+  }
+
+  .hte_loader,
+  .hte_loader:before,
+  .hte_loader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+  }
+  .hte_loader {
+    color: #ffffff;
+    font-size: 10px;
+    margin: 45vh auto 0;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  .hte_loader:before,
+  .hte_loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+  }
+  .hte_loader:before {
+    left: -3.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  .hte_loader:after {
+    left: 3.5em;
+  }
+  @-webkit-keyframes load7 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+      box-shadow: 0 2.5em 0 0;
+    }
+  }
+  @keyframes load7 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+      box-shadow: 0 2.5em 0 0;
+    }
+  }
+
+  .show{
+    visibility: visible;
+  }
+
+  .hte_spanner, .hte_overlay{
+      opacity: 0;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+  }
+
+  .hte_spanner.show, .hte_overlay.show {
+      opacity: 1
+  }
+body.is_not_admin .btn_group_index_leads .crm_lead_create_lead{
+    display: none !important;
+}
+
+body.is_not_admin.crm_lead_create_lead .btn_group_index_leads .crm_lead_create_lead{
+    display: flex !important;
+}
+
+body.is_not_admin #table-leads .crm_lead_edit_lead{
+    display: none;
+}
+
+body.is_not_admin.crm_lead_edit_lead #table-leads .crm_lead_edit_lead{
+    display: inline-block;
+}
+
+body.is_not_admin .group_btn_detail_lead .crm_lead_edit_lead{
+    display: none !important;
+}
+
+body.is_not_admin.crm_lead_edit_lead .group_btn_detail_lead .crm_lead_edit_lead{
+    display: flex !important;
+}
+
+body.is_not_admin .group_btn_detail_student .crm_student_edit{
+    display: none !important;
+}
+
+body.is_not_admin.crm_student_edit .group_btn_detail_student .crm_student_edit{
+    display: flex !important;
+}
+
+body.is_not_admin .crm_leads_delete{
+    display: none !important;
+}
+
+body.is_not_admin.crm_leads_delete .crm_leads_delete{
+    display: inline-block !important;
+}
+
+body.is_not_admin .btn_delete_noti_wrapper .crm_notification_delete{
+    display: none;
+}
+
+body.is_not_admin.crm_notification_delete .btn_delete_noti_wrapper .crm_notification_delete{
+    display: block;
+}
+
+body.is_not_admin .btn_create_pricelist_wrapper .crm_notification_pricelist{
+    display: none !important;
+}
+
+body.is_not_admin.crm_notification_pricelist .btn_create_pricelist_wrapper .crm_notification_pricelist{
+    display: flex !important;
+}
+
+body.is_not_admin button.crm_notification_pricelist{
+    display: none !important;
+}
+
+body.is_not_admin .wrap_btn.crm_notification_pricelist{
+    display: none !important;
+}
+
+body.is_not_admin.crm_notification_pricelist .wrap_btn.crm_notification_pricelist{
+    display: flex !important;
+}
+
+body.is_not_admin.crm_notification_pricelist button.crm_notification_pricelist{
+    display: inline-block !important;
+}
+
+body.is_not_admin .btn_group_employees .crm_employees_create{
+    display: none !important;
+}
+
+body.is_not_admin.crm_employees_create .btn_group_employees .crm_employees_create{
+    display: flex !important;
+}
+
+body.is_not_admin .crm_employees_delete{
+    display: none !important;
+}
+
+body.is_not_admin.crm_employees_delete .crm_employees_delete{
+    display: inline-block !important;
+}
+
+body.is_not_admin .btn_action_employees_wrapper .crm_employees_edit{
+    display: none !important;
+}
+
+body.is_not_admin.crm_employees_edit .btn_action_employees_wrapper .crm_employees_edit{
+    display: inline-block !important;
+}
+
+body.is_not_admin .btn_group_employees_wrapper .crm_employees_edit{
+    display: none !important;
+}
+
+body.is_not_admin.crm_employees_edit .btn_group_employees_wrapper .crm_employees_edit{
+    display: flex !important;
+}
+
+body.is_not_admin .crm_task_target_create{
+    display: none !important;
+}
+
+body.is_not_admin.crm_task_target_create .crm_task_target_create{
+    display: flex !important;
+}
+
+body.is_not_admin .crm_task_target_edit{
+    display: none !important;
+}
+
+body.is_not_admin.crm_task_target_edit .crm_task_target_edit{
+    display: inline-block !important;
+}
+
+body.is_not_admin .crm_task_target_delete{
+    display: none !important;
+}
+
+body.is_not_admin.crm_task_target_delete .crm_task_target_delete{
+    display: inline-block !important;
+}
+
+body.is_not_admin .crm_lead_transaction{
+    display: none !important;
+}
+
+body.is_not_admin.crm_lead_transaction .crm_lead_transaction{
+    display: flex !important;
+}
+
+body.is_not_admin .crm_transaction_delete{
+    display: none !important;
+}
+
+body.is_not_admin.crm_transaction_delete .crm_transaction_delete{
+    display: inline-block !important;
+}
+
+body.is_not_admin .crm_transaction_detail{
+    display: none !important;
+}
+
+body.is_not_admin.crm_transaction_detail .crm_transaction_detail{
+    display: inline-block !important;
+}
+
+body.is_not_admin .crm_notification_groupsDetail{
+    display: none !important;
+}
+
+body.is_not_admin.crm_notification_groupsDetail .crm_notification_groupsDetail{
+    display: inline-block !important;
+}
+
+body.is_not_admin .crm_student_create{
+    display: none !important;
+}
+
+body.is_not_admin.crm_student_create .crm_student_create{
+    display: inline-block !important;
+}
+
+body.is_not_admin .crm_notification_create{
+    display: none !important;
+}
+
+body.is_not_admin.crm_notification_create .crm_notification_create{
+    display: flex !important;
+}
+
+body.is_not_admin .btn_send_notification.crm_notification_create{
+    display: none !important;
+}
+
+body.is_not_admin.crm_notification_create .btn_send_notification.crm_notification_create{
+    display: inline-block !important;
+}
+
+body.is_not_admin .btn_noti_employee.crm_notification_create{
+    display: none !important;
+}
+
+body.is_not_admin.crm_notification_create .btn_noti_employee.crm_notification_create{
+    display: inline-block !important;
+}
+
+body.is_not_admin .crm_voip24h_list{
+    display: none !important;
+}
+
+body.is_not_admin.crm_voip24h_list .crm_voip24h_list{
+    display: flex !important;
+}
+
+.search-lead-student{
+    padding: 10px;
+    width: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.item_search_all{
+    margin-bottom: 5px;
+    /* border-bottom: 1px dashed #ccc; */
+    padding: 0px;
+    border-radius: 3px;
+    list-style: none;
+}
+
+body.is_super_admin .link_info_account,
+body.is_super_admin .link_change_password_account{
+    display: none;
+}
+
+body.is_super_admin .list_tasks_for_employee_wrapper{
+    display: none;
+}
+
+.tag-input-wrapper {
+    position: relative;
+    width: 300px;
+}
+
+#tag-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    right: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none; /* Hiển thị khi có dữ liệu */
+    z-index: 1000;
+}
+
+.dropdown-list li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown-list li:hover {
+    background: #f0f0f0;
+}
+
+#table_major_subject_combination_wrapper .dt-length,
+#table_major_subject_combination_wrapper .dt-info{
+    padding: 10px;
+}
+
+#table_major_subject_combination_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+#table_education_types_wrapper .dt-length,
+#table_education_types_wrapper .dt-info{
+    padding: 10px;
+}
+
+#table_education_types_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+#table_custom_field_wrapper .dt-length,
+#table_custom_field_wrapper .dt-info{
+    padding: 10px;
+}
+
+#table_custom_field_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+[id^="DataTables_Table_"]:nth-child(-n+10) .dt-length,
+[id^="DataTables_Table_"]:nth-child(-n+10) .dt-info {
+    padding: 10px;
+}
+
+/* Áp dụng padding-bottom cho các phần tử .dt-paging */
+[id^="DataTables_Table_"]:nth-child(-n+10) .dt-paging {
+    padding-bottom: 10px;
+}
+
+.text_link_title_noti a:first-child{
+    color: #181C32;
+}
+
+#table_group_wrapper .dt-length,
+#table_group_wrapper .dt-info{
+    padding: 10px;
+}
+
+#table_group_wrapper .dt-paging{
+    padding-bottom: 10px;
+}
+
+@media (min-width: 480px) and (max-width: 1777px) {
+    .box_name_email {
+        flex-wrap: wrap;
+    }
+
+    .box_name_email .input-group{
+        width: 80% !important;
+    }
+}
+
+.table_tthh.table-crm th::after, 
+.table_tthh.table-crm td::after{
+    height: 100% !important;
+}
+
+.table_tthh.table-crm thead th[colspan]::before{
+    width: 100%;
+}
+
+.table_tthh.table-crm th,
+.table_tthh.table-crm td{
+    padding: 0.5rem !important;
+}
+
+.table_tthh.table-crm td:first-child{
+    text-align: center;
+}
+
+.table_dssv.table-crm th::after, 
+.table_dssv.table-crm td::after{
+    height: 100% !important;
+}
+
+.table_dssv.table-crm thead th[colspan]::before{
+    width: 100%;
+}
+
+.table_dssv.table-crm th,
+.table_dssv.table-crm td{
+    padding: 0.5rem !important;
+}
+
+.table_dssv.table-crm td:first-child{
+    text-align: center;
+}
+
+.hidden-dt-column-order .dt-column-order{
+    display: none;
+}
+
+#xuong_dong th{
+    /* text-align: left !important; */
+}
+
+#xuong_dong th:nth-child(6n + 1) {
+    min-width: 135px !important;
+}
+
+#xuong_dong th:nth-child(6n + 2){
+    min-width: 85px !important;
+}
+
+#xuong_dong th:nth-child(6n + 3){
+    min-width: 115px !important;
+}
+
+#xuong_dong th:nth-child(6n + 4){
+    min-width: 180px !important;
+}
+
+#xuong_dong th:nth-child(6n + 5){
+    min-width: 70px !important;
+}
+
+#xuong_dong th:nth-child(6n + 6){
+    min-width: 85px !important;
+}
+
+#tbody_commission td{
+    text-align: center !important;;
+}
+
+/* datatable_wrapper */
+/* #datatable_wrapper .dt-search{display:none;}
+#datatable_commission_wrapper .dt-search{display:none;} */
+
+@media only screen and (max-width: 1803px){
+    .name_ava_lead_wrapper{
+        gap: 10px;
+    }
+
+    .name_ava_lead_wrapper{
+        justify-content: center !important;
+    }
+    .name_ava_lead_wrapper .ava{
+        margin-right: 0 !important;
+    }
+
+    .name_ava_lead_wrapper .ava img{
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media only screen and (max-width: 1803px){
+    .name_ava_lead_wrapper .name_lead .flex-grow-1.me-2{
+        width: 100%;
+    }
+
+    .name_ava_lead_wrapper .name_lead .flex-grow-1.me-2 h1{
+        text-align: center;
+    }
+}

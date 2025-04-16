@@ -1,0 +1,149 @@
+.call-screen {
+    display: none;
+    position: fixed;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    background: #222;
+    padding: 45px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 300px;
+    height: 400px;
+}
+
+.call-header {
+    margin-bottom: 15px;
+}
+
+.call-header p {
+    font-size: 16px;
+    color: #bbb;
+}
+
+.call-header h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.call-header #callingNumber{
+    color: #FFF;
+}
+
+.call-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    width: 250px;
+    transform: translateX(-50%);
+}
+
+.call-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+}
+
+.call-btn i {
+    font-size: 24px;
+}
+
+.end-call {
+    background: red;
+}
+
+.success-call{
+    background: green;
+    animation: shake 0.5s infinite;
+}
+
+.call-btn-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.call-btn-wrapper .call-btn:hover{
+    transform: scale(0.9);
+    transition: 0.3s ease-in;
+}
+
+.call-screen .headerScreen{
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    cursor: move;
+}
+
+.hide_btn{
+    display: none !important;
+}
+
+.noti_micro_check_device,
+.noti_micro_turn_on,
+.noti_err_voip{
+    text-align: end;
+}
+
+.pre-call-actions{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    gap: 80px;
+    padding: 15px;
+}
+
+.pre-call-actions .call-btn.end-call{
+    position: relative;
+}
+
+.pre-call-actions .call-btn.end-call .fa-phone{
+    color: #FFF;
+    transform: rotate(138deg);
+    position: absolute;
+    top: 18px;
+    left: 18px;
+}
+
+.mute_mic{
+    background-color: #FFF;
+}
+
+.mute_mic i{
+    color: red;
+}
+
+.unmute_mic{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.unmute_mic i{
+    color: #7E7E7E;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(10deg); }
+}

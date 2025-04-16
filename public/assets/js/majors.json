@@ -1,0 +1,209 @@
+[
+    {
+        "major": "Công nghệ kỹ thuật công trình xây dựng",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D07": "Toán, Hóa, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Công nghệ thông tin",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D07": "Toán, Hóa, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Đông Nam Á học",
+        "subject": [
+            {
+                "A01": "Toán, Lý, Tiếng Anh",
+                "C00": "Văn, Sử, Địa",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D02": "Văn, Toán, Tiếng Nga",
+                "D03": "Văn, Toán, Tiếng Pháp",
+                "D04": "Văn, Toán, Tiếng Trung",
+                "D05": "Văn, Toán, Tiếng Đức",
+                "D06": "Văn, Toán, Tiếng Nhật",
+                "D78": "Văn, KHXH, Tiếng Anh",
+                "D79": "Văn, KHXH, Tiếng Đức",
+                "D80": "Văn, KHXH, Tiếng Nga",
+                "D81": "Văn, KHXH, Tiếng Nhật",
+                "D82": "Văn, KHXH, Tiếng Pháp",
+                "D83": "Văn, KHXH, Tiếng Trung",
+                "D84": "Văn, KHXH, Tiếng Hàn"
+            }
+        ]
+    },
+    {
+        "major": "Du lịch",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "C03": "Văn, Toán, Sử",
+                "D01": "Văn, Toán, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Kế toán",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D07": "Toán, Hóa, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Kiểm toán",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D07": "Toán, Hóa, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Kinh doanh quốc tế",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D07": "Toán, Hóa, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Luật học",
+        "subject": [
+            {
+                "A01": "Toán, Lý, Tiếng Anh",
+                "C00": "Văn, Sử, Địa",
+                "D01": "Văn, Toán, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Luật kinh tế",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "C00": "Văn, Sử, Địa",
+                "D01": "Văn, Toán, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Marketing",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D07": "Toán, Hóa, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Ngôn ngữ Anh",
+        "subject": [
+            {
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "C00": "Văn, Sử, Địa",
+                "D78": "Văn, KHXH, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Ngôn ngữ Trung Quốc",
+        "subject": [
+            {
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D02": "Văn, Toán, Tiếng Nga",
+                "D03": "Văn, Toán, Tiếng Pháp",
+                "D04": "Văn, Toán, Tiếng Trung",
+                "D05": "Văn, Toán, Tiếng Đức",
+                "D06": "Văn, Toán, Tiếng Nhật",
+                "DD2": "Văn, Toán, Tiếng Hàn",
+                "D78": "Văn, KHXH, Tiếng Anh",
+                "D79": "Văn, KHXH, Tiếng Đức",
+                "D80": "Văn, KHXH, Tiếng Nga",
+                "D81": "Văn, KHXH, Tiếng Nhật",
+                "D82": "Văn, KHXH, Tiếng Pháp",
+                "D83": "Văn, KHXH, Tiếng Trung",
+                "DH8": "Văn, KHXH, Tiếng Hàn"
+            }
+        ]
+    },
+    {
+        "major": "Quản lý xây dựng",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D07": "Toán, Hóa, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Quản trị kinh doanh",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D07": "Toán, Hóa, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Quản trị nhân lực",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D07": "Toán, Hóa, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Tài chính ngân hàng",
+        "subject": [
+            {
+                "A00": "Toán, Lý, Hóa",
+                "A01": "Toán, Lý, Tiếng Anh",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D07": "Toán, Hóa, Tiếng Anh"
+            }
+        ]
+    },
+    {
+        "major": "Xã hội học",
+        "subject": [
+            {
+                "A01": "Toán, Lý, Tiếng Anh",
+                "C00": "Văn, Sử, Địa",
+                "D01": "Văn, Toán, Tiếng Anh",
+                "D78": "Văn, KHXH, Tiếng Anh"
+            }
+        ]
+    }
+]
