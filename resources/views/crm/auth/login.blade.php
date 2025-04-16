@@ -16,8 +16,8 @@
 		<div class="container">
 			<div class="row justify-content-sm-center">
 				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9 d-general">
-					<div class="text-center d-logo">
-                        <img src="/assets/image/logo.png" alt="" id="crm-logo">
+					<div class="text-center d-logo mt-5" >
+                        <img src="/assets/image/logo.png" alt="" id="crm-logo" style="width:300px">
 					</div>                    
 					<div class="card shadow-lg my-4">
 						<div class="card-body py-3">
@@ -28,14 +28,16 @@
 								<form id="crm-form-login" autocomplete="off">
 									{{ csrf_field() }}
 									<div class="mb-3 crm-email-login-wrapper">
-										<label class="title-14 mb-2 text-dark" for="email">Nhập Email hoặc Số Điện Thoại</label>
-										<input id="crm-email-login" type="text" class="form-control input-form" name="email" value="" required  autocomplete="off"  placeholder="Nhập Email hoặc Số Điện Thoại">
+										<label class="title-14 mb-2 text-dark" for="email">Email / Số Điện Thoại</label>
+										<input id="crm-email-login" type="text" class="form-control input-form" name="email" value="" required  
+											   autocomplete="off"  placeholder="Vui lòng nhập email hoặc số điện thoại ">
 										<div class="title-14 pt-2 e-error-msg error-input" style="width:auto;"></div>
 									</div>
 									<div class="mb-3 d-password crm-password-login-wrapper">
-										<label class="title-14 mb-2 text-muted" for="password">Mật khẩu</label>
+										<label class="title-14 mb-2 text-dark" for="password">Mật khẩu</label>
                                         <div style="position:relative;">
-                                            <input id="crm-password-login" type="password" class="form-control input-form show-password" name="password" required autocomplete="off"  placeholder="Nhập mật khẩu">
+                                            <input 	id="crm-password-login" type="password" class="form-control input-form show-password" 
+													name="password" required autocomplete="off"  placeholder="Nhập mật khẩu">
                                             <i class="fa fa-eye" aria-hidden="true" id="icon-show"></i>										
                                         </div>
 										<div class="title-14 pt-2 p-error-msg error-input"></div>
