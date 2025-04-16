@@ -62,10 +62,12 @@ class EmployeesServices implements EmployeesInterface
         $this->kpis_repository = $kpis_repository;
     }
     private function filter($params){        
-        $model = Employees::with(["user","leads","students","roles", "tasks", "files", 
-            "kpis" => function ($q) use($params){
+        $model = Employees::with(["user","leads","students","roles", "tasks", "files"]);
+        if(isset($params["semesters_id"])) {
+            $model = Employees::with(["kpis" => function ($q) use($params){
                 $q->where('semesters_id', $params["semesters_id"]);
             }]);
+        }
         if (isset($params['keyword'])) {
             $model = $model->where('name', 'LIKE', '%' . $params['keyword'] . '%', )
                 ->orWhere('code', $params['keyword'])
@@ -87,13 +89,16 @@ class EmployeesServices implements EmployeesInterface
                     $model = $model->where('semesters_from_year', $params["current_year"]);
                 }}
             }
-        }
+        }        
         $model = $model->orderBy('id', 'desc')->first();
-        $data = [
-            "semesters_id"  =>  $model->id,
-            "from_date"     =>  $model->admission_date,
-            "to_date"       =>  Carbon::parse( $model->admission_date)->addMonths(3)->format('Y-m-d')
-        ];        
+        $data = null;
+        if($model){
+            $data = [
+                "semesters_id"  =>  $model->id,
+                "from_date"     =>  $model->admission_date,
+                "to_date"       =>  Carbon::parse( $model->admission_date)->addMonths(3)->format('Y-m-d')
+            ];
+        }
         return $data;
     }
     private function get_data_first_semesters(){
@@ -111,26 +116,26 @@ class EmployeesServices implements EmployeesInterface
                 $params["academy_id"] = 1;
                 $params["current_year"]   = Carbon::now()->format('Y');  
                 $data = $this->set_date_time_for_semesters($params);
-                $params["semesters_id"] = $data["semesters_id"] ?? null;                
-                $params["from_date"] = $data["from_date"];
-                $params["to_date"]   = $data["to_date"];
+                if($data) {
+                    $params["semesters_id"] = $data["semesters_id"] ?? null;                
+                    $params["from_date"] = $data["from_date"];
+                    $params["to_date"]   = $data["to_date"];
+                }
             }                              
-               
+            
             $model = $this->filter($params);
-            $entries = $model->get();
-
+            $entries = $model->get();     
+            // dd($entries);       
             foreach ($entries as $entry) {   
                 $entry['roles_name']        = $entry->roles->name;                                
                 $kpis_report                = $this->get_kpis_report_for_employees($params, $entry->id);                               
-                $rate                       = $this->get_data_rate_kpis($kpis_report, $entry->id, $params["semesters_id"]);  
-                
+                $rate                       = isset($params["semesters_id"]) ? $this->get_data_rate_kpis($kpis_report, $entry->id, $params["semesters_id"]) : null;                  
                 // Tính tỷ lệ             
                 $entry['total_price']       = isset($kpis_report['total_price']) ? number_format($kpis_report['total_price'], 0, ',','.') : 0;
                 $entry['total_quantity']    = isset($kpis_report['total_quantity']) ? number_format($kpis_report['total_quantity'] , 0, ',','.') : 0;
                 $entry['rate_price']        = isset($rate['rate_price']) ? number_format($rate['rate_price'], 0, ',','.')  : 0;
                 $entry['rate_quantity']     = isset($rate['rate_quantity']) ? number_format($rate['rate_quantity'], 0, ',','.') : 0;                
-            }             
-            // dd($entries->toArray());           
+            }   
             return response()->json([
                 'code' => 200,
                 'data' => $entries

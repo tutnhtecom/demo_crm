@@ -54,8 +54,7 @@
                                     $employeeActive = collect($dataDB)->where('deleted_at', null)->count();
                                     $employeeDisable = collect($dataDB)->filter(function ($employee) {
                                         return $employee->deleted_at !== null;
-                                    })->count();
-                                    
+                                    })->count();                                    
                                 }
                             @endphp
                             <div class="symbol  symbol-40px symbol-rounded bg-primary bg-opacity-15 p-4">
@@ -184,19 +183,31 @@
                                 <option value="date-asc">Cũ nhất</option>
                             </select>
                         </div> -->
-                        <div class="vr d-none d-md-block text-gray-400 mx-8"></div>
+                        <div class="vr d-none d-md-block text-gray-400 mx-6 mx-0"></div>
                     </div>
                     <!--begin::Search & Sort-->
                     <div class="d-flex justify-content-end mx-4 ">
-                        <select id="semesterSelect" name="semesterSelect" aria-label="Chọn Học kỳ " 
-                                data-placeholder="Chọn Học kỳ" class="form-select h-lg-40px">
-                            @foreach ($dvlk_semesters as $semester)
-                                @if($semester->types == 0)
-                                    <option value="{{$semester->id}}" data-name="{{$semester->note}}">{{$semester->note}}</option>
-                                @endif
-                            @endforeach
+                        @if(!isset($dvlk_semesters) || count($dvlk_semesters) <= 0)
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#academicModalCreate"
+                                    class="btn btn-sm lh-0 d-flex align-items-center gap-1 mx-0 pr-3">                   
+                                    <i class="fa fa-plus-circle text-primary"></i>
+                                    <!-- <span class="d-none d-md-inline">Thêm mới</span> -->
+                            </a>                        
+                        @endif
+                        <select id="semesterSelect" name="semesterSelect" aria-label="Chọn Học kỳ "  data-placeholder="Chọn Học kỳ" class="form-select h-lg-40px">
+                            @if(isset($dvlk_semesters) && count($dvlk_semesters) > 0)
+                                @foreach ($dvlk_semesters as $semester)
+                                    @if($semester->types == 0)
+                                        <option value="{{$semester->id}}" data-name="{{$semester->note}}">{{$semester->note}}</option>
+                                    @endif
+                                @endforeach
+                            @else
+                                <option value="#">Chưa có học kỳ tuyển sinh</option>                                                            
+                            @endif
                         </select>
-                    </div>
+                        
+                        @include('crm.content.academicTerms.academic_modal_create')
+                    </div>                    
                     <!--begin::Actions-->
                     <div class="d-flex justify-content-end">
                         <!--begin:Action Buttons-->
@@ -552,5 +563,6 @@
     });
         
 </script>
+<script type="module" src="/assets/crm/js/htecomJs/createAcademyListSemester.js"></script>
 @include('crm.content.employees.modal_noti_employees')
 @endsection

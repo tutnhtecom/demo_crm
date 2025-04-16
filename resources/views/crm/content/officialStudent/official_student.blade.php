@@ -415,11 +415,11 @@
                                                 class="text-gray-800 text-nowrap text-hover-primary fs-6 fw-bold">{{ $employee->name }}</span>
                                             <span
                                                 class="text-muted fw-semibold d-block fs-7">{{ $employee->code }}</span>
-                                        </div>
-                                        <input data-id="{{ $item->id }}" type="radio"
+                                        </div>                                                                          
+                                        <input data-id="{{ $item->id ?? '' }}" type="radio"
                                             class="ms-auto form-check-input employee-radio" name="supporter"
-                                            value="{{ $employee->id }}" data-name="{{ $employee->name }}"
-                                            data-code="{{ $employee->code }}">
+                                            value="{{ $employee->id ?? '' }}" data-name="{{ $employee->name ?? ''}}"
+                                            data-code="{{ $employee->code ?? '' }}">
                                         </div>
                                     </div>
                                 @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateConfigVoipRequest;
+use App\Http\Requests\UpdateConfigVoipRequest;
 use App\Services\ConfigFilters\ConfigFilterInterface;
 use Illuminate\Http\Request;
 
@@ -38,9 +39,8 @@ class ConfigGeneralController extends Controller
         $params = $request->all();        
         return  $this->c_g_inteface->create_config_voip($params);  
     }
-    public function update_config_voip(Request $request, $id) {                
+    public function update_config_voip(UpdateConfigVoipRequest $request, $id) {                
         $params = $request->all();        
         return  $this->c_g_inteface->update_config_voip($params, $id);  
     }
-    
 }

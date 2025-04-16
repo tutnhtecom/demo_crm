@@ -13,9 +13,11 @@
                         </label>
                         <select id="academy_name" class="form-select" name="academic_name"
                             data-placeholder="Chọn khóa tuyển sinh" data-label="Chọn khóa tuyển sinh" data-dropdown-parent="#affiliateCreateModal" required>
-                            @foreach ($academy_list as $academy_list_item)
-                                <option value="{{$academy_list_item->id}}">{{$academy_list_item->name}}</option>
-                            @endforeach
+                            @if(isset($academy_list))
+                                @foreach ($academy_list as $academy_list_item)
+                                    <option value="{{$academy_list_item->id}}">{{$academy_list_item->name}}</option>
+                                @endforeach
+                            @endif
                         </select>                 
                         <p class="error-input mt-1"></p>
                     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\crm;
 
 use App\Http\Controllers\Controller;
+use App\Models\AcademyList;
 use App\Models\DVLKSemesters;
 use App\Models\EmailTemplates;
 use App\Models\EmailTemplateTypes;
@@ -32,8 +33,9 @@ class EmployeesController extends Controller
         $dataResponse = $this->employee_interface->index($param);       
         $dvlk_semesters = $this->get_data_dvlk_semesters($param);  
         $data = $dataResponse->getData(true);        
-        $dataEmployeeDB = DB::table('employees')->get();        
-        return view('crm.content.employees.employees_list', ['data' => $data, 'dataDB' => $dataEmployeeDB, 'dvlk_semesters' => $dvlk_semesters]);
+        $dataEmployeeDB = DB::table('employees')->get();     
+        $academy_list = AcademyList::select('id', 'name')->get();  
+        return view('crm.content.employees.employees_list', ['data' => $data, 'dataDB' => $dataEmployeeDB, 'dvlk_semesters' => $dvlk_semesters, "academy_list" => $academy_list]);
     }
 
     public function createEmployees(){

@@ -80,29 +80,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data['data'] as $item)
-                                <tr>
-                                    <td class="align-middle px-2 px-md-4 py-4 text-primary text-center"> {{$item['id']}} </td>
-                                    <td class="align-middle text-center">
-                                        {{$item['name']}}
-                                    </td>
-                                    <td class="align-middle px-2 px-md-4 py-4 text-center">
-                                        {{ \Carbon\Carbon::parse($item['created_at'])->format('d/m/Y') }}
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-ghost p-1 icon_update_edu_type"
-                                            data-bs-toggle="modal" data-bs-target="#educationTypeUpdateModal" data-name="{{$item['name']}}" data-edu-id="{{$item['id']}}">
-                                            <img src="assets/crm/media/svg/crm/edit.svg" alt="Sửa" width="18"
-                                                height="18" />
-                                        </button>
-                                        <button type="button" class="btn btn-ghost p-1 icon_delete_edu_type"
-                                            data-edu-id="{{$item['id']}}" data-bs-toggle="modal" data-bs-target="#educationTypeDeleteModal">
-                                            <img src="assets/crm/media/svg/crm/delete.svg" alt="Xóa" width="18"
-                                                height="18" />
-                                        </button>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            @if(isset($data['data'] ) && count($data['data'] ) > 0)
+                                @foreach ($data['data'] as $item)
+                                    <tr>
+                                        <td class="align-middle px-2 px-md-4 py-4 text-primary text-center"> {{$item['id']}} </td>
+                                        <td class="align-middle text-center">
+                                            {{$item['name']}}
+                                        </td>
+                                        <td class="align-middle px-2 px-md-4 py-4 text-center">
+                                            {{ \Carbon\Carbon::parse($item['created_at'])->format('d/m/Y') }}
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <button type="button" class="btn btn-ghost p-1 icon_update_edu_type"
+                                                data-bs-toggle="modal" data-bs-target="#educationTypeUpdateModal" data-name="{{$item['name']}}" data-edu-id="{{$item['id']}}">
+                                                <img src="assets/crm/media/svg/crm/edit.svg" alt="Sửa" width="18"
+                                                    height="18" />
+                                            </button>
+                                            <button type="button" class="btn btn-ghost p-1 icon_delete_edu_type"
+                                                data-edu-id="{{$item['id']}}" data-bs-toggle="modal" data-bs-target="#educationTypeDeleteModal">
+                                                <img src="assets/crm/media/svg/crm/delete.svg" alt="Xóa" width="18"
+                                                    height="18" />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @endforeach                       
+                            @endif                            
                         </tbody>
                     </table>
                 </div>
