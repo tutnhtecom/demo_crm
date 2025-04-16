@@ -426,7 +426,9 @@ class NotificationsServices implements NotificationsInterface
             }  
 
             $params["obj_create"]   =  $this->get_data_create($params);                  
-            if(isset($params['File']) || (isset($params['email']) || is_array($params['email']))) {
+
+            
+            if(isset($params['File']) || (isset($params['email']) && is_array($params['email']))) {
                 if (isset($params['email']) && !is_array($params['email'])) {                    
                     if (str_contains($params['email'], ', '))  $params['email'] = explode(', ', trim($params['email']));
                     if (str_contains($params['email'], ','))  $params['email'] = explode(',', trim($params['email']));
@@ -444,7 +446,8 @@ class NotificationsServices implements NotificationsInterface
                         "message" => "Tạo thông báo mới không thành công"
                     ];
                 }
-            } else {                               
+            } else {            
+                               
                 $model = $this->single($params);
                 if (isset($model->id) || count($model) > 0) {
                     $this->call_jobs_send_mail($params);

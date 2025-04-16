@@ -13,6 +13,7 @@ use App\Repositories\EmailTemplateTypesRepository;
 use App\Traits\General;
 use App\Models\Files;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -101,8 +102,9 @@ class EmailTemplatesServices implements EmailTemplatesInterface
             $tilte                  =  isset($params['title']) ? $this->slug($params['title']) : 'mau_email_template_' . rand(1, 999999);
             $params["file_name"]    = $this->get_file_name($tilte);            
             $model = $this->e_tmp_repository->create($params);
-            //Tạo email plate
-            EmailTemplatesJobs::dispatch($params);
+            //Tạo email blad template
+            Artisan::call('make:blade', ["data" =>  $params]);
+            // EmailTemplatesJobs::dispatch($params);
             $result = null;
             if (isset($model->id)) {
                 $result = [

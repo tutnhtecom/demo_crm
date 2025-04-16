@@ -333,11 +333,11 @@ $(document).ready(()=>{
                                         <div class="flex-grow-1 me-2 text-left">
                                             <span class="text-gray-800 text-hover-primary fs-5 fw-bold">
                                                 <div id="">
-                                                    ${row.employees.name}
+                                                    ${row && row.employees ? row.employees.name : ''}
                                                 </div>
                                             </span>
                                             <span class="text-muted fw-semibold d-block fs-6">
-                                                ${row.employees.code}
+                                                ${row && row.employees ?  row.employees.code : ''}
                                             </span>
                                         </div>
                                     </div>`;
