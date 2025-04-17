@@ -4,7 +4,7 @@
         @php
             $currentEmployeeId = auth()->user()->employees ? auth()->user()->employees->id : null;
         @endphp
-        @if(auth()->user()->id == 1 || $currentEmployeeId == $dataId->employees->id)
+        @if(auth()->user()->id == 1 || $currentEmployeeId == $dataId->employees->id || auth()->user()->employees->roles_id == 1)
             <a href="#" data-bs-toggle="modal" data-bs-target="#ti_modal_add_quota" id="crm_notification_pricelist"
                 data-email-tmp="TYPE_PRICE_LISTS" data-email-tmp-id="3"
                 class="btn btn-primary d-flex align-items-center gap-2 crm_notification_pricelist"> 
