@@ -593,21 +593,22 @@ trait General
         return $new_file_name;
     }
     function get_file_tmp($tmp_file){
-        $status = false;
-        if(strpos($tmp_file,'.crm.') > 0) {
-            $status = true;
+        $str_file = '';
+        if(strpos($tmp_file,'.crm.') <= 0) {
+            $str_file = 'includes.crm.' . $tmp_file;
+        } else {
+            $str_file = $tmp_file;
         }
-        return $status;
+        return $str_file;
     }
-    function get_file_name($params, $tmp_default){       
-        $check = $this->get_file_tmp($tmp_default);
+    function get_file_name($params, $tmp_default){             
+        $temp_file = $this->get_file_tmp($tmp_default);
+        
         if(isset($params['file_name']) && view()->exists("includes.template." . $params["file_name"]) == true) {            
             $file_name = "includes.template." . $params["file_name"];
-        } else {               
-            if($check == true && view()->exists($tmp_default) == true) {
-                $file_name = $tmp_default;
-            } elseif($check == false && view()->exists($tmp_default) == true){
-                $file_name = "includes.crm." . $tmp_default;
+        } else {                        
+            if(view()->exists($temp_file) == true) {
+                $file_name = $temp_file;            
             } else {
                 $model = EmailTemplates::where('types_id', EmailTemplateTypes::TYPE_PRICE_LISTS)                        
                         ->where('is_default', 1)
@@ -616,7 +617,7 @@ trait General
                     $file_name = $model->file_name;
                 }
             }        
-        }             
+        }                 
         return $file_name;
     }
 }
