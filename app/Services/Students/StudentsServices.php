@@ -209,7 +209,7 @@ class StudentsServices implements StudentsInterface
             ])->where('id', $id);
             $model  = $model->first();
             $model->avatar = $model->files->where('leads_id', $id)->where('types', Files::TYPE_AVATAR)->first()->image_url ?? 'assets/crm/media/svg/avatars/blank.svg';
-            $contacts = $model->contacts->where('leads_id', $id)->where('type', contacts::TYPE_ADDRESS)->first();
+            $contacts = $model->contacts->where('leads_id', $model->leads_id)->where('type', contacts::TYPE_ADDRESS)->first();
             // $model->attach_file = $model->files->where('leads_id', $id)->where('types', Files::TYPE_PRICE)->first()->image_url ?? null;
             $model->address = $this->getAddress($contacts);
 
