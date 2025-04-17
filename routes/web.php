@@ -62,6 +62,8 @@ Route::middleware(['auth.login', 'crm.allow_access'])->group(function () {
         Route::group(['prefix' => 'config-filters'], function () {                        
             Route::get('/', [FilterController::class, 'index'])->name('crm.filters.index');
         });
+        Route::post('/search', [SearchController::class, 'search'])->name('search');
+
         Route::middleware(['router_name.access'])->group(function () {
             Route::group(['prefix' => 'leads'], function () {
                 Route::get('/', [LeadsController::class, 'index'])->name('crm.leads.index');
@@ -121,7 +123,6 @@ Route::middleware(['auth.login', 'crm.allow_access'])->group(function () {
             // Tổng đài VOIP24H \\
             Route::get('/voip24h', [Voip24hController::class, 'listVoip24h'])->name('crm.voip24h.list');
 
-            Route::post('/search', [SearchController::class, 'search'])->name('search');
         });
     });
 });

@@ -315,17 +315,17 @@
                         <tr class="bg-primary text-white">
                             {{-- <th class="w-40px text-center"></th> --}}
                             <th class="text-left fs-5 px-6">#</th>
-                            <th class="w-200px text-nowrap align-middle fs-5 text-center w-225px">Người gửi yêu cầu</th>
-                            <th class="text-nowrap align-middle fs-5 text-center">Liên hệ</th>
-                            <th class="text-nowrap align-middle fs-5 text-center">Tư vấn viên</th>
-                            <th class="text-nowrap align-middle fs-5 text-center w-300px">Mô tả yêu cầu</th>
-                            <th class="text-nowrap align-middle fs-5 text-center">File đính kèm</th>
+                            <th class="w-200px text-nowrap align-middle fs-5 text-center w-225px" style="min-width:165px;">Người gửi yêu cầu</th>
+                            <th class="text-nowrap align-middle fs-5 text-center" style="min-width:90px;">Liên hệ</th>
+                            <th class="text-nowrap align-middle fs-5 text-center" style="min-width:120px;">Tư vấn viên</th>
+                            <th class="text-nowrap align-middle fs-5 text-center w-300px" style="min-width:135px;">Mô tả yêu cầu</th>
+                            <th class="text-nowrap align-middle fs-5 text-center" style="min-width:120px;">File đính kèm</th>
                             {{-- <th class="w-200px text-nowrap align-middle fs-5 text-start w-225px">Phụ trách tư vấn</th> --}}
-                            <th class="text-nowrap align-middle fs-5 text-center">Trạng thái</th>
-                            <th class="text-nowrap align-middle fs-5 text-center">Ưu tiên</th>
-                            <th class="text-nowrap align-middle fs-5 text-center">Ngày tạo</th>
-                            <th class="text-nowrap align-middle fs-5 text-center">Ngày cập nhật</th>
-                            <th class="text-nowrap align-middle fs-5 text-center pe-4">Chức năng</th>
+                            <th class="text-nowrap align-middle fs-5 text-center" style="min-width:100px;">Trạng thái</th>
+                            <th class="text-nowrap align-middle fs-5 text-center" style="min-width:90px;">Ưu tiên</th>
+                            <th class="text-nowrap align-middle fs-5 text-center" style="min-width:100px;">Ngày tạo</th>
+                            <th class="text-nowrap align-middle fs-5 text-center" style="min-width:140px;">Ngày cập nhật</th>
+                            <th class="text-nowrap align-middle fs-5 text-center pe-4" style="min-width:115px;">Chức năng</th>
                         </tr>
                     </thead>
                 </table>

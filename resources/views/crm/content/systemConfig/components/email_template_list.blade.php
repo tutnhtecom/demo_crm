@@ -66,7 +66,7 @@
                                 if(count($email_template) > 0) {
                                     foreach ($email_template as $key => $e_template){                                                                              
                                         $status = view()->exists('includes.template.' . $e_template->file_name);
-                                        <!-- // Băt đầu lệnh if kiểm tra trạng thái -->
+                                        //<!-- Băt đầu lệnh if kiểm tra trạng thái -->
                                         if($e_template->types_id === $e_type->id && $status) {                                                                                        
                                             $hasTemplate = true;
                                         @endphp
@@ -96,7 +96,7 @@
                                         </tr>                
                                         @php
                                         }
-                                        <!-- // Kết thúc lệnh if kiểm tra trạng thái -->
+                                        //<!-- // Kết thúc lệnh if kiểm tra trạng thái -->
                                     }
                                 }
                            @endphp
