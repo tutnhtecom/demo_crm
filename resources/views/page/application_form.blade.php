@@ -47,7 +47,7 @@
                 <td style="width: 50%; text-align: left; vertical-align: top;">
                     <div class="fw-bold text-center" style="width:max-content;font-size:12px;">
                         <span>BỘ GIÁO DỤC VÀ ĐÀO TẠO</span><br>
-                        <span>TRƯỜNG ĐẠI HỌC MỞ</span><br>
+                        <span>TRƯỜNG Đại học</span><br>
                         <span>THÀNH PHỐ HỒ CHÍ MINH</span>
                         <hr style="margin:3px 94px;border-top:1px solid #000;opacity:1;">
                         <div>

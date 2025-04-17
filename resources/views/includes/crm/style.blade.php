@@ -1,14 +1,14 @@
 <meta charset="utf-8" />
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="description" content="Đại học mở CRM" />
-<meta name="keywords" content="tuyển sinh, đại học mở, crm, htecom" />
+<meta name="description" content="Hệ thống CRM tuyển sinh" />
+<meta name="keywords" content="tuyển sinh, Đại học, crm, htecom" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Đại học mở CRM" />
+<meta property="og:title" content="Hệ thống CRM tuyển sinh" />
 <meta property="og:url" content="https://crm.themeimpact.com" />
-<meta property="og:site_name" content="Đại học mở CRM" />
-<meta name="author" content="Đại học mở CRM">
+<meta property="og:site_name" content="Hệ thống CRM tuyển sinh" />
+<meta name="author" content="Hệ thống CRM tuyển sinh">
 <link rel="canonical" href="https://crm.themeimpact.com" />
 <link rel="shortcut icon" type="image/png" href="/assets/image/logo-favicon.ico"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700&subset=vietnamese" />

@@ -37,9 +37,9 @@
                                 </svg>
 
                                 <span class="d-none d-md-inline">Thêm mới loại mẫu</span>
-                            </button>                                
+                            </button>
                             @include('crm.content.systemConfig.modal_create_email')
-                            @include('crm.content.systemConfig.modal_create_type_email')                                
+                            @include('crm.content.systemConfig.modal_create_type_email')
                         </div>
                     </div>
                     <!--end::Actions-->
@@ -61,48 +61,45 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                            $hasTemplate = false;
-                            @endphp
-                            @foreach ($email_template as $e_template)
-                            @php
-                            $status = view()->exists('includes.template.' . $e_template->file_name);
-                            @endphp
-                            @if ($e_template->types_id === $e_type->id && $status)
-                            @php
-                            $hasTemplate = true;
-                            @endphp
-                            <tr>
-                                <td class="align-middle px-2 px-md-4 py-4 text-primary">
-                                    {{$e_template->title}}
-                                </td>
-                                <td class="align-middle text-center">
-                                    <button type="button" class="btn-edit-email btn btn-ghost p-1" data-id="{{$e_template->id}}" data-bs-toggle="modal" data-bs-target="#editExampleEmailModal{{$e_template->id}}">
-                                        <img src="assets/crm/media/svg/crm/edit.svg" alt="Sửa" width="18"
-                                            height="18" />
-                                    </button>
+                           @php
+                                $hasTemplate = false;
+                                if(count($email_template) > 0) {
+                                    foreach ($email_template as $key => $e_template){                                                                              
+                                        $status = view()->exists('includes.template.' . $e_template->file_name);
+                                        <!-- // Băt đầu lệnh if kiểm tra trạng thái -->
+                                        if($e_template->types_id === $e_type->id && $status) {                                                                                        
+                                            $hasTemplate = true;
+                                        @endphp
+                                        <tr>
+                                            <td class="align-middle px-2 px-md-4 py-4 text-primary">
+                                                {{$e_template->title}}
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <button type="button" class="btn-edit-email btn btn-ghost p-1" data-id="{{$e_template->id}}" data-bs-toggle="modal" data-bs-target="#editExampleEmailModal{{$e_template->id}}">
+                                                    <img src="assets/crm/media/svg/crm/edit.svg" alt="Sửa" width="18"
+                                                        height="18" />
+                                                </button>
 
-                                    {{-- Modal edit exam mail --}}
-                                    @include('crm.content.systemConfig.modal_edit_exam_email')
+                                                {{-- Modal edit exam mail --}}
+                                                @include('crm.content.systemConfig.modal_edit_exam_email')
 
-                                    <button type="button" class="btn btn-ghost p-1"
-                                        data-ti-row-confirm-message="Xóa hồ sơ này?"
-                                        data-ti-button-action="row-remove" data-ti-row-confirm="true" data-id="{{$e_template->id}}" data-bs-toggle="modal" data-bs-target="#deleteExampleEmailModal{{$e_template->id}}">
-                                        <img src="assets/crm/media/svg/crm/delete.svg" alt="Xóa" width="18"
-                                            height="18" />
-                                    </button>
+                                                <button type="button" class="btn btn-ghost p-1"
+                                                    data-ti-row-confirm-message="Xóa hồ sơ này?"
+                                                    data-ti-button-action="row-remove" data-ti-row-confirm="true" data-id="{{$e_template->id}}" data-bs-toggle="modal" data-bs-target="#deleteExampleEmailModal{{$e_template->id}}">
+                                                    <img src="assets/crm/media/svg/crm/delete.svg" alt="Xóa" width="18"
+                                                        height="18" />
+                                                </button>
 
-                                    {{-- Modal delete exam mail --}}
-                                    @include('crm.content.systemConfig.modal_delete_exam_email')
-                                </td>
-                            </tr>
-                            @endif
-                            @endforeach
-                            {{-- @if (!$hasTemplate)
-                                                <tr>
-                                                    <td colspan="2" class="text-center">Không có mẫu nào</td>
-                                                </tr>
-                                            @endif --}}
+                                                {{-- Modal delete exam mail --}}
+                                                @include('crm.content.systemConfig.modal_delete_exam_email')
+                                            </td>
+                                        </tr>                
+                                        @php
+                                        }
+                                        <!-- // Kết thúc lệnh if kiểm tra trạng thái -->
+                                    }
+                                }
+                           @endphp
                         </tbody>
                     </table>
                     <!--end::Table-->

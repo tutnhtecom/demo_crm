@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TT Đào tạo trực tuyến – Trường Đại học Mở Tp. Hồ Chí Minh | @yield('title')</title>
+    <title>Hệ thống tuyển sinh Đại học | @yield('title')</title>
 	<!-- include file css -->
 	@include('includes.stylesheet')
 </head>

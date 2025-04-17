@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 @extends('crm.layouts.layout')
-@section('header', 'Quản lý thi sinh mới')
+@section('header', 'Quản lý sinh viên mới')
 
 @section('content')
     <div class="px-6">
@@ -22,7 +22,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Quản lý thí sinh mới</li>
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Quản lý sinh viên mới</li>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item">
@@ -30,7 +30,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Thí sinh tiềm năng</li>
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Sinh viên tiềm năng</li>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item">
@@ -59,7 +59,7 @@
                     </a>
                     <!--end:back button-->
                     <!--begin::Title-->
-                    <h3 class="card-title text-dark fw-bolder m-md-0">Tạo thí sinh mới</h3>
+                    <h3 class="card-title text-dark fw-bolder m-md-0">Tạo sinh viên mới</h3>
                     <!--end::Title-->
 
                 </div>

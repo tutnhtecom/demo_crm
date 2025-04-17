@@ -110,7 +110,7 @@
                         @foreach ($data as $notification)
                             <div class="d-flex flex-nowrap gap-2 border border-gray-200 bg-white shadow-sm rounded-3 p-2">
                                 <div class="vr d-none d-md-block text-gray-400"></div>
-                                <div class="symbol symbol-100px rounded noti_img">
+                                <div class="symbol symbol-100px noti_img" style="align-self: center;">
                                     @php
                                         preg_match('/<img[^>]+>/i', $notification->content, $imgTag);
                                     @endphp

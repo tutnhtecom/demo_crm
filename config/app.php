@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'TT Đào tạo trực tuyến – Trường Đại học Mở Tp. Hồ Chí Minh'),
+    'name' => env('APP_NAME', 'Hệ thống tuyển sinh Đại học'),
 
     /*
     |--------------------------------------------------------------------------
