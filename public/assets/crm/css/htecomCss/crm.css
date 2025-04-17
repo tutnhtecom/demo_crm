@@ -1228,3 +1228,9 @@ body.is_super_admin .list_tasks_for_employee_wrapper{
         text-align: center;
     }
 }
+
+@media only screen and (max-width: 1485px){
+    .name_ava_lead_wrapper{
+        flex-wrap: wrap;
+    }
+}

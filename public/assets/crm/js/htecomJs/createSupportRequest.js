@@ -267,7 +267,6 @@ $(document).ready(()=>{
                     className: 'align-middle px-2 px-md-4 py-4',
                     searchable: false,
                     render: function(data, type, row) {
-                        console.log(row.leads);
                         let render = `<div class="d-flex">
                                     <div class="symbol rounded-full overflow-hidden symbol-40px me-5">
                                         <img src="assets/crm/media/svg/avatars/blank.svg" class="h-40 align-self-center" alt="">

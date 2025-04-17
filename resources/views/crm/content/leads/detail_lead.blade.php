@@ -158,7 +158,7 @@
                         <div class="row">
                             <div class="col-12 col-lg-7 col-xl-12">
                                 <div
-                                    class="d-flex flex-row flex-sm-row flex-wrap flex-md-column flex-lg-column flex-xxl-row flex-stack p-6 name_ava_lead_wrapper">
+                                    class="d-flex flex-row flex-sm-row flex-md-column flex-lg-column flex-xxl-row flex-stack p-6 name_ava_lead_wrapper">
                                     <!--begin::Symbol-->
                                     <div class="symbol rounded-full overflow-hidden symbol-90px me-5 ava">
                                         <img src="{{$dataId->avatar ?? 'assets/crm/media/svg/avatars/blank.svg'}}" class="h-90 align-self-center"
