@@ -276,12 +276,12 @@
                                 <th class="w-40px">ID</th>
                                 <th class="text-nowrap w-40px fs-5">Mã số sinh viên</th>
                                 <th class="text-nowrap fs-5 text-start w-40px" >Họ và tên</th>
-                                <th class="text-nowrap fs-5 text-start pe-7" >Số điện thoại</th>
+                                <th class="text-nowrap fs-5 text-start pe-7" style="min-width:125px;">Số điện thoại</th>
                                 <th class="text-nowrap fs-5 text-start pe-7">Email</th>
                                 <th class="text-nowrap fs-5 text-start pe-7">Tư vấn viên</th>
-                                <th class="text-nowrap fs-5 text-start pe-7">Nguồn đăng ký</th>
-                                <th class="text-nowrap fs-5 text-start pe-7">Gắn thẻ</th>
-                                <th class="text-nowrap fs-5 text-start pe-7">Ngành học</th>
+                                <th class="text-nowrap fs-5 text-start pe-7" style="min-width:140px;">Nguồn đăng ký</th>
+                                <th class="text-nowrap fs-5 text-start pe-7" style="min-width:100px;">Gắn thẻ</th>
+                                <th class="text-nowrap fs-5 text-start pe-7" style="min-width:140px;">Ngành học</th>
                                 <th class="text-nowrap fs-5 text-start pe-7">Mức độ tiềm năng</th>
                                 <th class="text-nowrap fs-5 text-start pe-7">Thời gian</th>
                                 <th class="text-nowrap fs-5 text-start pe-7 min-w-150px">Chức năng</th>

@@ -156,8 +156,8 @@ $(document).ready(() => {
                     }">ĐVLK: ${ten_dvlk}</th>
                 </tr>
                 <tr class="text-white text-nowrap fs-5 text-center">
-                    <th rowspan="3" style="width:5%;" class="text-center">STT</th>
-                    <th rowspan="3" style="width:10%;" class="text-center"><div>Khóa tuyển sinh</div></th>
+                    <th rowspan="3" style="width:5%;min-width:65px;" class="text-center">STT</th>
+                    <th rowspan="3" style="width:10%;min-width:150px;" class="text-center"><div>Khóa tuyển sinh</div></th>
             `;
 
             years.forEach((year) => {
@@ -188,7 +188,7 @@ $(document).ready(() => {
                         "Đơn vị",
                         "Cá nhân",
                     ].forEach((option) => {
-                        thead += `<th style="width:10%;"class="text-center">${option}</th>`;
+                        thead += `<th style="width:10%;" class="text-center margin-right-1">${option}</th>`;
                     });
                 });
             });

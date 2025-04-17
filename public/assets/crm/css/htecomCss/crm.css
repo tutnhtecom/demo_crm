@@ -1201,6 +1201,10 @@ body.is_super_admin .list_tasks_for_employee_wrapper{
 /* #datatable_wrapper .dt-search{display:none;}
 #datatable_commission_wrapper .dt-search{display:none;} */
 
+.margin-right-1 .dt-column-title{
+    margin-right: 10px;
+}
+
 @media only screen and (max-width: 1803px){
     .name_ava_lead_wrapper{
         gap: 10px;
