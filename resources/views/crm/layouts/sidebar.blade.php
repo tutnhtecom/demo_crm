@@ -120,18 +120,7 @@
                                 </a>
                                 @endif
                             </div>
-
-                            <div class="menu-item menu-accordion">
-                                @if(in_array('crm.affiliate.sources', $userPermissions))
-                                <a class="menu-link crm_affiliate_sources" href="{{ route('crm.affiliate.sources') }}">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Quản lý đơn vị liên kết</span>
-                                </a>
-                                @endif
-                            </div>
-
+                            
                             <div class="menu-item menu-accordion">
                                 @if(in_array('crm.academic.terms', $userPermissions))
                                 <a class="menu-link crm_academic_terms" href="{{ route('crm.academic.terms') }}">
