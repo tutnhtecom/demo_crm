@@ -1,6 +1,6 @@
 @extends('crm.layouts.layout')
 
-@section('header', 'Quản lý thi sinh mới')
+@section('header', 'Quản lý sinh viên tiềm năng mới')
 @section('content')
     <div class="px-6">
         <!--begin::App Breadcrumb-->

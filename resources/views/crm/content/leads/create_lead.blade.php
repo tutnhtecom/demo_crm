@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 @extends('crm.layouts.layout')
-@section('header', 'Quản lý sinh viên mới')
+@section('header', 'Quản lý sinh viên tiềm năng mới')
 
 @section('content')
     <div class="px-6">
@@ -59,7 +59,7 @@
                     </a>
                     <!--end:back button-->
                     <!--begin::Title-->
-                    <h3 class="card-title text-dark fw-bolder m-md-0">Tạo sinh viên mới</h3>
+                    <h3 class="card-title text-dark fw-bolder m-md-0">Tạo sinh viên tiềm năng mới</h3>
                     <!--end::Title-->
 
                 </div>
@@ -98,7 +98,7 @@
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" id="create_lead_fullName" name="candidate_name"
-                                aria-label="Nhập họ tên thí sinh" placeholder="Nhập họ tên thí sinh"  class="form-control" />
+                                aria-label="Nhập họ tên sinh viên tiềm năng" placeholder="Nhập họ tên sinh viên tiềm năng"  class="form-control" />
                                 <p class="error-input mt-1"></p>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                                 <label for="candidate_email" class="form-label">Email <span
                                         class="text-danger">*</span></label>
                                 <input type="email" id="create_lead_email" name="candidate_email"
-                                    aria-label="Nhập Email thí sinh" placeholder="Nhập Email thí sinh" class="form-control"/>
+                                    aria-label="Nhập Email sinh viên tiềm năng" placeholder="Nhập Email sinh viên tiềm năng" class="form-control"/>
                                 <p class="error-input mt-1"></p>
                             </div>
                         </div>                        
