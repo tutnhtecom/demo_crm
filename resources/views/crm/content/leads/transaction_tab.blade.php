@@ -4,7 +4,7 @@
         @php
             $currentEmployeeId = auth()->user()->employees ? auth()->user()->employees->id : null;
         @endphp
-        @if(auth()->user()->id == 1 || $currentEmployeeId == $dataId->employees->id)
+        @if(auth()->user()->id == 1 || $currentEmployeeId == $dataId->employees->id || auth()->user()->employees->roles_id == 1)
             <a href="{{ route('crm.lead.transaction', ['id' => $dataId->id]) }}"
                 class="btn btn-primary d-flex align-items-center gap-2 crm_lead_transaction">
                 <img src="assets/crm/media/svg/crm/add-circle.svg" alt="Thêm báo giá"

@@ -213,7 +213,7 @@ class TransactionsServices implements TransactionsInterface{
         $model = KpisReports::create($data);
         return $model;
     }   
-    public function update($params, $id) {
+    public function update($params, $id) {      
         try {
             DB::beginTransaction();
             $tran_date = isset($params["tran_date"]) ? Carbon::createFromFormat('d/m/Y', trim($params["tran_date"]))->format('Y-m-d') : Carbon::now()->format('Y-m-d');
@@ -231,13 +231,13 @@ class TransactionsServices implements TransactionsInterface{
                 "note"              => $params["note"],
                 "updated_by"        => Auth::user()->id,
             ];
-            $model = $this->tran_repository->updateById($id, $data);
+            $model = $this->tran_repository->updateById($id, $data);           
             $result = null;
-            if(isset($model->id)) {
-                
+            if(isset($model->id)) {                
                 $id_student = null;
                 $email  = $this->get_data_id('leads', $data['leads_id'], 'email');
-                if($model->tran_status_id == Transactions::TRANS_COMPLETE) {
+               
+                if($model->tran_status_id == Transactions::TRANS_COMPLETE) {                    
                     $priceListId = PriceLists::where('id', $params['price_lists_id'])->first();
                     if(!isset($params['academic_terms_id'])){
                         $params['academic_terms_id'] = $priceListId['academic_terms_id'];
@@ -256,11 +256,10 @@ class TransactionsServices implements TransactionsInterface{
                         "active_student"        => Leads::ACTIVE_STUDENTS
                     ]);
                     $id_student = Students::where('email', $email)
-                            ->whereNull('deleted_at')
-                            ->value('id');
-
+                    ->whereNull('deleted_at')
+                    ->value('id');                 
                     // Gửi mail
-                    $file_name = $this->get_file_name($params, 'includes.crm.thong_bao_hoan_thanh_hoc_phi');
+                    $file_name = $this->get_file_name($params, 'includes.crm.thong_bao_hoan_thanh_hoc_phi');                                        
                     $status_file = view()->exists($file_name);
                     if ($status_file) {
                         // Kiểm tra file có tồn tại
@@ -308,10 +307,10 @@ class TransactionsServices implements TransactionsInterface{
             }
             DB::commit();
             return response()->json($result);
-       } catch (\Exception $e) {
+       } catch (\Exception $e) {            
             DB::rollBack();
             Log::error('Thông báo lỗi: ' . $e->getMessage() . ' tại dòng số: ' . $e->getMessage());
-            return response()->json(['message' => 'Không tìm thấy bản ghi này'], 404);
+            return response()->json(['message' => $e->getMessage()]);
        }
     }
     private function delete_status($id){

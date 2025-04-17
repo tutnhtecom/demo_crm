@@ -100,9 +100,8 @@
                                 <span class="d-none d-md-inline">Yêu cầu mới</span>
                             </a>
                             @include('crm.content.leads.modal.modal_create_support_request')
-
                             
-                            @if(auth()->user()->id == 1 || $currentEmployeeId == $dataId->employees->id)
+                            @if(auth()->user()->id == 1 || $currentEmployeeId == $dataId->employees->id || auth()->user()->employees->roles_id == 1)
                                 <a href="{{ route('crm.lead.edit_lead', ['id' => $dataId->id]) }}"
                                     class="btn btn-sm btn-primary lh-0 d-flex align-items-center gap-1 crm_lead_edit_lead">
                                     <svg width="18" height="18" viewBox="0 0 14 14" fill="none"
