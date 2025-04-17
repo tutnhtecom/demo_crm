@@ -366,7 +366,7 @@
                             <th class="w-40px">ID</th>
                             <th class="text-nowrap fs-5 text-start">Họ và tên</th>
                             <th class="text-nowrap fs-5 text-start w-40px">Mã số sinh viên</th>
-                            <th class="text-nowrap fs-5 text-start pe-7">Số điện thoại</th>
+                            <th class="text-nowrap fs-5 text-start pe-7" style="min-width:125px;">Số điện thoại</th>
                             <th class="text-nowrap fs-5 text-start pe-7">Email</th>
                             <th class="text-nowrap fs-5 text-start pe-7">Tư vấn viên</th>
                             <th class="text-nowrap fs-5 text-start pe-7">Nguồn đăng ký</th>
