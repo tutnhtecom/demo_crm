@@ -119,7 +119,7 @@ class SupportsServices implements SupportsInterface
     }
     public function details($id) {
         try {
-            $model = $this->sp_repository->with(['leads', 'students', 'employees','files'])->where('id', $id)->first();
+            $model = $this->sp_repository->with(['leads', 'students', 'employees','employees.files' ,'files'])->where('id', $id)->first();
             if (isset($model->id)) {
                 $result = [
                     "code" => 200,

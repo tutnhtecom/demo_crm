@@ -86,7 +86,7 @@
                             <div class="d-flex align-items-center mt-2 mb-5">
                                 <!--begin::Symbol-->
                                 <div class="symbol symbol-40px symbol-circle me-4">
-                                    <img src="assets/crm/media/avatars/300-6.jpg" alt="" />
+                                    <img src="{{$data['data']['leads'] ? $data['data']['leads']['avatar'] : 'assets/crm/media/svg/avatars/blank.svg'}}" alt="" />
                                 </div>
                                 <!--end::Symbol-->
                                 <!--begin::Title-->
@@ -218,7 +218,7 @@
                                 <div class="d-flex align-items-center mt-2 mb-5">
                                     <!--begin::Symbol-->
                                     <div class="position-relative symbol symbol-50px symbol-circle me-4">
-                                        <img src="assets/crm/media/avatars/300-6.jpg" alt="" />
+                                        <img src="{{$data['data']['leads'] ? $data['data']['leads']['avatar'] : 'assets/crm/media/svg/avatars/blank.svg'}}" alt="" />
                                         <span
                                             class="position-absolute top-0 start-100 translate-middle badge badge-outline rounded-pill border border-success text-success bg-white p-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"
@@ -250,7 +250,7 @@
                                     {{$data['data']['descriptions'] ?? null}}
                                 </p>
                                 <div>
-                                    <h4>File được tải lên</h4>
+                                    <h4>File được tải lên:</h4>
                                     <div>      
                                         @if(!empty($data['data']['file_url']))
                                             <a href="{{ $data['data']['file_url'] ?? '' }}" target="_blank">File</a>
@@ -268,7 +268,16 @@
                                 <div class="d-flex align-items-center mt-2 mb-5">
                                     <!--begin::Symbol-->
                                     <div class="position-relative symbol symbol-50px symbol-circle me-4">
-                                        <img src="assets/crm/media/svg/avatars/blank.svg" alt="" />
+                                        @if(!empty($data['data']['employees']) && !empty($data['data']['employees']['files']))
+                                            @foreach ($data['data']['employees']['files'] as $value)
+                                                @if($value['types'] == 0)
+                                                    <img src="{{ $value['image_url'] }}" alt="">
+                                                    @break
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <img src="{{ asset('assets/crm/media/svg/avatars/blank.svg') }}" alt="" />
+                                        @endif
                                         <span
                                             class="position-absolute top-0 start-100 translate-middle badge badge-outline rounded-pill border border-success text-success bg-white p-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"
