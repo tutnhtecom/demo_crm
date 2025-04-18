@@ -42,7 +42,7 @@ use App\Models\ConfigFilter;
 use App\Models\ConfigGeneral;
 use Illuminate\Support\Facades\Route;
 
-
+$router->get('/test_send_mail', [PageController::class, 'test_send_mail']);
 // Quản lý leads
 Route::group([
     'middleware' => 'api',
