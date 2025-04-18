@@ -620,4 +620,13 @@ trait General
         }                 
         return $file_name;
     }
+
+    private function get_email_admin(){
+        $email = null;
+        $model = User::where('id', User::IS_ROOT)->first();
+        if(isset($model->email)) {
+            $email = $model->email;
+        }        
+        return $email;
+    }
 }

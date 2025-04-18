@@ -6,6 +6,7 @@ use App\Models\Employees;
 use App\Models\RolePermissions;
 use App\Models\Roles;
 use App\Models\User;
+use App\Traits\General;
 use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
@@ -13,18 +14,12 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 
 class CreateEmployeesRequest extends FormRequest
 {
+    use General;
     public function authorize(): bool
     {
         return true;
     }
-    private function get_email_admin(){
-        $email = null;
-        $model = User::where('id', User::IS_ROOT)->first();
-        if(isset($model->email)) {
-            $email = $model->email;
-        }        
-        return $email;
-    }
+
     public function rules(): array
     {   
         return [
