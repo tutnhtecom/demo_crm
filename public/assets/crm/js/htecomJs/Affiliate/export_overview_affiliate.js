@@ -12,7 +12,7 @@ $(document).ready(()=>{
         (day<10 ? '0' : '') + day;
         $.ajax({
             url: api,
-            type: 'POST',
+            type: 'GET',
             xhrFields: {
                 responseType: 'blob'
             },

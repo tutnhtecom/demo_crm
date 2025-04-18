@@ -597,7 +597,8 @@ Route::middleware(['api.login', 'crm.allow_access'])->group(function () {
         //Thông tin hoa hồng 
         $router->get('/data-commission-for-affiliate/{id}', [AffiliateController::class , 'get_data_commission_for_affiliate']);       
         // Xuất file
-        $router->post('/export-overview', [ AffiliateController::class , 'export_overview']);
+        // $router->post('/export-overview', [ AffiliateController::class , 'export_overview']);
+        $router->get('/export-overview', [ AffiliateController::class , 'export_overview']);
         $router->post('/export-details/{id}', [ AffiliateController::class , 'export_details']);
     });
 
