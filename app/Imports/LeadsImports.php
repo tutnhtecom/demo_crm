@@ -238,13 +238,13 @@ class LeadsImports implements ToModel, WithStartRow, WithChunkReading, WithHeadi
             '2' => ['required','max:255', 'min:1'],
             '3' => ['nullable', 'date_format:d/m/Y', 'before:now'],
             '4' => ['required', function ($attribute, $value, $fail) {
-                $users = User::where('phone', $value)->count();                
+                $users = Leads::where('phone', $value)->count();                
                 if ($users > 0) {
                     $fail('Số điện thoại: ' . $value .' đã tồn tại');
                 }
             }],                       
             '5' => ['nullable', 'max:12', 'min:10', function ($attribute, $value, $fail) {
-                $users = User::where('home_phone', $value)->count();                
+                $users = Leads::where('home_phone', $value)->count();                
                 if ($users > 0) {
                     $fail('Số điện thoại nhà riêng: ' . $value .' đã tồn tại');
                 }
