@@ -157,8 +157,7 @@ class SupportsServices implements SupportsInterface
         }
         return $employees_id;
     }
-    public function create($params) {
-        // dd($params);
+    public function create($params) {        
         try {                              
             DB::beginTransaction();
             if(isset($params['File'])) {
@@ -174,8 +173,8 @@ class SupportsServices implements SupportsInterface
             }
             $model =  $this->sp_repository->create($data);           
             $result = null;
-            if(isset($model->id)) {
-                // $params["types_id"] = EmailTemplateTypes::TYPE_SUPPORTS;                
+            if(isset($model->id)) {                
+                $this->get_send_mail($params);
                 $result = response()->json([
                     "code"      => 200,
                     "message"   => "Thêm mới yêu cầu hỗ trợ thành công",
@@ -284,7 +283,7 @@ class SupportsServices implements SupportsInterface
     }
     private function get_send_mail($data) {        
         $params["types_id"] = EmailTemplateTypes::TYPE_SUPPORTS; //         
-        $file_name  = "includes.crm.mau_thong_bao_yeu_cau_ho_tro";
+        $file_name  = $this->get_file_name($params, "includes.crm.mau_thong_bao_yeu_cau_ho_tro");
         if (view()->exists($file_name)) {
             $data_sendmail = [
                 'title'         => $data["subject"],

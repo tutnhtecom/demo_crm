@@ -16,7 +16,6 @@ class EmailTemplateTypes extends Model
     const TYPE_PRICE_LISTS = 3;
     const TYPE_NOTIFICATIONS = 4;   
     const TYPE_TRANSACTIONS = 5;
-
     const TYPE_EMPLOYEES = 6;
     const TYPE_TASK = 7;
     const TYPE_KPIS = 8;

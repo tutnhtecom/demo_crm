@@ -184,9 +184,9 @@
                                     <select id="select_email_template" name="" class="form-select">
                                         <option value="" disabled selected>Chọn mẫu email</option>
                                         @if(isset($email_template) && count($email_template) > 0)
-                                        @foreach ($email_template as $tmp)
-                                        <option value="{{$tmp['file_name']}}">{{$tmp['title']}}</option>
-                                        @endforeach
+                                            @foreach ($email_template as $tmp)
+                                            <option value="{{$tmp['file_name']}}">{{$tmp['title']}}</option>
+                                            @endforeach
                                         @endif
                                     </select>
                                 </div>
