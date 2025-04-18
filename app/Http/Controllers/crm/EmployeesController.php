@@ -44,10 +44,22 @@ class EmployeesController extends Controller
         $line_id_voip = LineVoip::select(['line_id', 'line_password'])->whereNull('deleted_at')->get();
         return view('crm.content.employees.employees_create', compact('dataRole', 'email_template', 'line_id_voip'));
     }
-    private function get_data_email_template(){
+    private function get_data_email_template_1(){
         $email_template  = EmailTemplates::whereHas('eTemplateTypes', function ($q) {
             $q->where('types_id', EmailTemplateTypes::TYPE_EMPLOYEES);                
+        })->get()->toArray();                             
+        return $email_template;
+    }
+    private function get_data_email_template(){
+        $e_template  = EmailTemplates::whereHas('eTemplateTypes', function ($q) {
+            $q->where('types_id', EmailTemplateTypes::TYPE_EMPLOYEES);                
         })->get()->toArray();                        
+        $email_template = [];
+        foreach ($e_template as $key => $item) {
+            if(view()->exists('includes.template.' . $item["file_name"])) {
+                $email_template[] = $item;
+            }
+        }        
         return $email_template;
     }
     public function detailEmployees($id){
