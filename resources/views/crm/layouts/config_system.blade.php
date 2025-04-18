@@ -1,4 +1,4 @@
-@if(auth()->user()->email != 'admin@gmail.com' || auth()->user()->id !== 1)
+@if(auth()->user()->email != 'admin@gmail.com' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
 @php
 $configPermissions = [
 'crm.system.email', 'crm.system.status', 'crm.custom.field', 'crm.system.sources', 'crm.major.subject', 'crm.filters.index', 'crm.voip24h.list'];

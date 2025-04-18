@@ -1,4 +1,4 @@
-@if(auth()->user()->email != 'admin@gmail.com')
+@if(auth()->user()->email != 'admin@gmail.com' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
 @php
 $configPermissions = [
 'crm.education.type', 'crm.system.sources', 'crm.major.subject'];

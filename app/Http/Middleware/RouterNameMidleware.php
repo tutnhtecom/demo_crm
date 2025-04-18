@@ -22,7 +22,7 @@ class RouterNameMidleware
         if(!Auth::user())  {
             return redirect()->route('crm.login');
         }
-        if (Auth::user()->id == User::IS_ROOT){
+        if (Auth::user()->id == User::IS_ROOT || Auth::user()->employees->roles_id == 1){
             return $next($request);
         }
         if (Auth::user()->types == User::TYPE_EMPLOYEES) {            
