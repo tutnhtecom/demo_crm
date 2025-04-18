@@ -304,7 +304,8 @@
                                                     <div class="flex-grow-1 me-2">
                                                         @php
                                                             $currentEmployeeId = auth()->user()->employees ? auth()->user()->employees->id : null;
-                                                            $link = ($currentEmployeeId == $employee['id']) ? route('crm.employee.detail', ['id' => $employee['id']]) : '/crm/employees';
+                                                            $currentRolesId = auth()->user()->employees ? auth()->user()->employees->roles_id : null;
+                                                            $link = ($currentEmployeeId == $employee['id'] || $currentRolesId == 1) ? route('crm.employee.detail', ['id' => $employee['id']]) : '/crm/employees';
                                                         @endphp
                                                         <a href="{{ auth()->user()->id == 1 ? route('crm.employee.detail', ['id' => $employee['id']]) : $link }}" class="text-gray-800 text-hover-primary text-nowrap fs-5 fw-bold">{{ $employee['name'] }}</a>
                                                         <span class="text-muted fw-semibold d-block fs-6">{{ $employee['code'] }}</span>
