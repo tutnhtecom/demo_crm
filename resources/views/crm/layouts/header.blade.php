@@ -144,7 +144,7 @@
                             @endif    
                         </div>
                         <div class="d-flex flex-column flex-stack align-items-start">
-                            @if (auth()->user()->email != 'admin@gmail.com')
+                            @if (auth()->user()->email != 'admin@htecom.vn')
                                 <div
                                     class="rounded role_employee {{ auth()->user()->employees->roles->id == 1 ? 'border-danger bg-danger text-danger bg_admin' : 'badge-light-primary' }} px-2"
                                     data-employee-id="{{ auth()->user()->employees->roles->id == 1 ? '' : auth()->user()->employees->id }}">
