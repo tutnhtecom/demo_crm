@@ -9,6 +9,7 @@ use App\Models\LstStatus;
 use App\Models\Marjors;
 use App\Models\Sources;
 use App\Models\User;
+use App\Traits\General;
 use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
@@ -16,6 +17,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UpdateLeadRequest extends FormRequest
 {
+    use General;
     public function authorize(): bool
     {
         return true;
@@ -24,7 +26,7 @@ class UpdateLeadRequest extends FormRequest
     public function rules()
     {        
         
-        $marjors_id = $this->marjors_id;
+        // $marjors_id = $this->marjors_id;
         return [
             // ->where('marjors_id', $marjors_id)
             'leads_code'    => ['nullable', function ($attribute, $value, $fail) use($marjors_id){
@@ -50,7 +52,7 @@ class UpdateLeadRequest extends FormRequest
                 $eLeadsUnique = Leads::where('id', '!=' , $this->id)
                                 ->where('email', $value)
                                 ->where('marjors_id', $this->marjors_id)->count();
-                if ($eLeadsUnique > 0) {
+                if ($eLeadsUnique > 0  || $value == $this->get_email_admin()) {
                     $fail('Email đã được đăng ký trên hệ thống');
                 }
             }],
@@ -61,20 +63,6 @@ class UpdateLeadRequest extends FormRequest
                     $fail('Ngày sinh phải nhỏ hơn ngày hôm nay');
                 }
             }],
-            // 'identification_card'       => ['nullable', 'size:12', 'regex:/^(\d{09}|\d{10}|\d{11}|\d{12})$/',function ($attribute, $value, $fail) {
-            //     $eLeadsUnique = Leads::where('id', '!=' , $this->id)
-            //                     ->where('identification_card', $value)->where('marjors_id', $this->marjors_id)->count();
-            //     if ($eLeadsUnique > 0) {
-            //         $fail('CCCD được đăng ký trên hệ thống');
-            //     }
-            // }],
-            // 'identification_card'       => ['nullable', 'size:12',function ($attribute, $value, $fail) {
-            //     $eLeadsUnique = Leads::where('id', '!=' , $this->id)
-            //                     ->where('identification_card', $value)->where('marjors_id', $this->marjors_id)->count();
-            //     if ($eLeadsUnique > 0) {
-            //         $fail('CCCD được đăng ký trên hệ thống');
-            //     }
-            // }],
             "identification_card"       => ['nullable', 'size:12'],
             "lst_status_id" =>['required', function ($attribute, $value, $fail) {
                 $status = LstStatus::where('id', $value)->first();

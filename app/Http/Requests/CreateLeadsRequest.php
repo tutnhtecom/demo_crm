@@ -13,9 +13,11 @@ use App\Models\LstStatus;
 use App\Models\Marjors;
 use App\Models\Sources;
 use App\Models\User;
+use App\Traits\General;
 
 class CreateLeadsRequest extends FormRequest
 {
+    use General;
     public function authorize(): bool
     {
         return true;
@@ -40,7 +42,7 @@ class CreateLeadsRequest extends FormRequest
             }],    
             'email'         => ['required','max:255', 'email', function ($attribute, $value, $fail) use($marjors_id) {
                 $eLeadsUnique = Leads::where('email', $value)->where('marjors_id', $marjors_id)->count();
-                if ($eLeadsUnique > 0) {
+                if ($eLeadsUnique > 0  || $value == $this->get_email_admin()) {
                     $fail('Thí sinh đã tồn tại trên hệ hống');
                 }
             }],     

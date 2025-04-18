@@ -4,12 +4,14 @@ namespace App\Http\Requests;
 
 use App\Models\Leads;
 use App\Models\User;
+use App\Traits\General;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class RegisterProfileRequest extends FormRequest
 {
+    use General;
     public function authorize(): bool
     {
         return true;
@@ -22,14 +24,14 @@ class RegisterProfileRequest extends FormRequest
             // 'password' => ['required', 'min:8', 'regex:/(?=^.{8,16}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/' ],
             'email'         => ['required','max:255', 'email', function ($attribute, $value, $fail) use($marjors_id) {
                 $eLeadsUnique = Leads::where('email', $value)->where('marjors_id', $marjors_id)->count();
-                if ($eLeadsUnique > 0) {
-                    $fail('Thí sinh đã tồn tại trên hệ hống');
+                if ($eLeadsUnique > 0 || $value == $this->get_email_admin()) {
+                    $fail('Email của sinh viên đã tồn tại trên hệ thống');
                 }
             }],  
             'phone'         => ['required','regex:/^(\d{10}|\d{11}|\d{12})$/', function ($attribute, $value, $fail) use($marjors_id){
                 $eLeadsUnique = Leads::where('phone', $value)->where('marjors_id', $marjors_id)->count();                                
                 if ($eLeadsUnique > 0) {
-                    $fail('Thí sinh đã tồn tại trên hệ hống');
+                    $fail('Số điện thoại đã tồn tại trên hệ thống');
                 }
             }],       
             'full_name'             => ['required','max:100', 'min:1'],
