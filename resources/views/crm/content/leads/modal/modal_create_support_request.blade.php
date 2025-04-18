@@ -67,7 +67,7 @@
                                     <div class="mb-6 send_cc_have_contact_wrapper select_user_send_to_wrapper">
                                         <label for="contact" class="form-label">Chỉ định yêu cầu</label>
                                         
-                                        <input type="text" value="{{$dataId->employees->name}}" data-email="{{$dataId->employees->email}}" class="form-control" name="notify_to_2"
+                                        <input type="text" value="{{$dataId->employees->name ?? null}}" data-email="{{$dataId->employees->email ?? null}}" class="form-control" name="notify_to_2"
                                                 id="send_cc_have_contact" placeholder="" disabled />
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                 <div class="col-12 col-md-6">
                                     <div class="mb-6">
                                         <label for="contact" class="form-label">Số điện thoại</label>
-                                        <input type="text" value="{{$dataId->phone}}" class="form-control" name="notify_to_2"
+                                        <input type="text" value="{{$dataId->phone ?? null}}" class="form-control" name="notify_to_2"
                                                 id="select_lead_have_contact" placeholder="" disabled />
                                     </div>
                                 </div>
@@ -83,7 +83,7 @@
                                 <div class="col-12 col-md-6">
                                     <div class="mb-6">
                                         <label for="contact" class="form-label">Email nhận thông báo</label>
-                                        <input type="text" value="{{$dataId->email}}" class="form-control" name="notify_to_2"
+                                        <input type="text" value="{{$dataId->email ?? null}}" class="form-control" name="notify_to_2"
                                                 id="send_to_have_contact" placeholder="" disabled />
                                     </div>
                                 </div>

@@ -269,7 +269,7 @@ $(document).ready(()=>{
                     render: function(data, type, row) {
                         let render = `<div class="d-flex">
                                     <div class="symbol rounded-full overflow-hidden symbol-40px me-5">
-                                        <img src="assets/crm/media/svg/avatars/blank.svg" class="h-40 align-self-center" alt="">
+                                        <img src="${row.leads ? row.leads.avatar : 'assets/crm/media/svg/avatars/blank.svg'}" class="h-40 align-self-center" alt="">
                                     </div>
 
                                     <div class="d-flex align-items-center flex-nowrap text-nowrap flex-wrap">
