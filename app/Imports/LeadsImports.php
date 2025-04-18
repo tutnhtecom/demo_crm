@@ -237,8 +237,18 @@ class LeadsImports implements ToModel, WithStartRow, WithChunkReading, WithHeadi
             '1' => ['nullable','max:255', 'min:1', 'unique:leads,leads_code'],
             '2' => ['required','max:255', 'min:1'],
             '3' => ['nullable', 'date_format:d/m/Y', 'before:now'],
-            '4' => ['required', 'unique:leads,phone'],
-            '5' => ['nullable', 'unique:leads,home_phone', 'max:12', 'min:10'],
+            '4' => ['required', function ($attribute, $value, $fail) {
+                $users = User::where('phone', $value)->count();                
+                if ($users > 0) {
+                    $fail('Số điện thoại: ' . $value .' đã tồn tại');
+                }
+            }],                       
+            '5' => ['nullable', 'max:12', 'min:10', function ($attribute, $value, $fail) {
+                $users = User::where('home_phone', $value)->count();                
+                if ($users > 0) {
+                    $fail('Số điện thoại nhà riêng: ' . $value .' đã tồn tại');
+                }
+            }],                       
             '6' => ['nullable', 'size:12', 'unique:leads,identification_card', 'regex:/^(\d{09}|\d{10}|\d{11}|\d{12})$/'],
             '7' => ['nullable', 'regex:/^[0,1,2]+$/'],
             '8' => ['required','max:255', 'min:1', 'email', function ($attribute, $value, $fail) {
