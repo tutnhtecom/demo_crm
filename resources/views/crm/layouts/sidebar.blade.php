@@ -80,13 +80,13 @@
             </div>
             <!--end:Menu item-->
             <!--begin:Menu item-->
-            @if(auth()->user()->email != 'admin@gmail.com')
+            @if(auth()->user()->email != 'admin@htecom.vn')
                 @php
                     $userPermissions = auth()->user()->employees->roles->role_permissions->pluck('permissions.router_web_name')->toArray();
                 @endphp
             @endif
 
-            @if(auth()->user()->email != 'admin@gmail.com' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
+            @if(auth()->user()->email != 'admin@htecom.vn' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
                 @php
                     $leadsPermissions = ['crm.leads.index', 'crm.affiliate.sources', 'crm.academic.terms'];
                     $leadsHasPermission = array_intersect($leadsPermissions, $userPermissions);
@@ -190,7 +190,7 @@
                 </div>
             @endif
 
-            @if(auth()->user()->email != 'admin@gmail.com' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
+            @if(auth()->user()->email != 'admin@htecom.vn' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
                 @php
                     $studentsPermissions = ['crm.official.student'];
                     $studentsHasPermission = array_intersect($studentsPermissions, $userPermissions);
@@ -232,7 +232,7 @@
                 </div>
             @endif
 
-            @if(auth()->user()->email != 'admin@gmail.com' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
+            @if(auth()->user()->email != 'admin@htecom.vn' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
                 @php
                     $suportsPermissions = ['crm.affiliate.sources'];
                     $suportsHasPermission = array_intersect($suportsPermissions, $userPermissions);
@@ -276,7 +276,7 @@
             @endif
 
 
-            @if(auth()->user()->email != 'admin@gmail.com' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
+            @if(auth()->user()->email != 'admin@htecom.vn' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
                 @php
                     $suportsPermissions = ['crm.request.support'];
                     $suportsHasPermission = array_intersect($suportsPermissions, $userPermissions);
@@ -341,7 +341,7 @@
                 </div>
             @endif
 
-            @if(auth()->user()->email != 'admin@gmail.com' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
+            @if(auth()->user()->email != 'admin@htecom.vn' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
                 @php
                     $notificationsPermissions = [
                         'crm.notification.list', 'crm.notification.create', 'crm.notification.pricelist', 'crm.notification.groups'];
@@ -461,7 +461,7 @@
 
             <h5 class="pe-4 mt-3">Tài khoản</h5>
 
-            @if(auth()->user()->email != 'admin@gmail.com' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
+            @if(auth()->user()->email != 'admin@htecom.vn' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
                 @php
                     $employeesPermissions = ['crm.employees.list'];
                     $employeesHasPermission = array_intersect($employeesPermissions, $userPermissions);
@@ -516,7 +516,7 @@
                 </div>
             @endif
 
-            @if(auth()->user()->email != 'admin@gmail.com' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
+            @if(auth()->user()->email != 'admin@htecom.vn' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
                 @php
                     $kpisPermissions = ['crm.task.list', 'crm.task.target'];
                     $kpiHasPermission = array_intersect($kpisPermissions, $userPermissions);
@@ -603,7 +603,7 @@
                 </div>
             @endif
 
-            @if(auth()->user()->email != 'admin@gmail.com' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
+            @if(auth()->user()->email != 'admin@htecom.vn' && (!auth()->user()->employees || auth()->user()->employees->roles->id != 1))
                 @php
                     $rolesPermissions = ['crm.role.roleList'];
                     $rolesHasPermission = array_intersect($rolesPermissions, $userPermissions);

@@ -14,13 +14,13 @@ class UsersAdminSeeder extends Seeder
      */
     public function run(): void
     {        
-        $model = User::where('id', 1 )->where('email', '!=' ,'admin@gmail.com')->first();
+        $model = User::where('id', 1 )->where('email', '!=' ,'admin@htecom.vn')->first();
         if(isset($model->id)) {
             $model = $model->update(['id' =>  rand(100, 999)]);
         }
         $data =  [
             'id'                => 1,            
-            'email'             => 'admin@gmail.com',            
+            'email'             => 'admin@htecom.vn',            
             'password'          => Hash::make('password'),
             'remember_token'    => Str::random(10),
             'status'            => User::ACTIVE,
