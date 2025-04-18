@@ -17,15 +17,23 @@ class CreateEmployeesRequest extends FormRequest
     {
         return true;
     }
-    
+    private function get_email_admin(){
+        $email = null;
+        $model = User::where('id', User::IS_ROOT)->first();
+        if(isset($model->email)) {
+            $email = $model->email;
+        }        
+        return $email;
+    }
     public function rules(): array
-    {        
+    {   
         return [
             'name'          => ['required', 'max:255', 'min:1'],    
             'email'         => ['required', 'max:255', 'min:1', function ($attribute, $value, $fail) {
                 $eEmployeesUnique = Employees::where('email', $value)->count();
-                $eUserUnique = User::where('email', $value)->count();
-                if ($eEmployeesUnique > 0 || $eUserUnique > 0) {
+                $eUserUnique = User::where('email', $value)                            
+                             ->count();                
+                if ($eEmployeesUnique > 0 || $eUserUnique > 0 || $this->email == $this->get_email_admin()) {
                     $fail('Email đã được đăng ký trên hệ thống');
                 }
             }],    

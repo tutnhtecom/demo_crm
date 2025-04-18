@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SendMail;
+// use App\Mail\SendMail;
 use App\Services\Authentication\AuthInterface;
 use App\Services\Leads\LeadsInterface;
+use App\Traits\General;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -74,18 +75,28 @@ class PageController extends Controller
     }
 
     public function view_application_form($id){
-        // $param = $this->leads_interface->details($id);
+        
         $data = [
             'title' => 'Phiếu đăng ký dự tuyển đại học',
             'data'  => $this->leads_interface->details($id)
         ];
-        // dd($data['data']->full_name);
+        
         $pdf = Pdf::loadView('page.application_form', $data);
         return $pdf->stream('filename.pdf');
-        // return view('page.application_form');
+        
     }
 
     public function form_register(){
         return view('formRegister.form_register');
+    }
+    use General;
+    public function test_send_mail(){
+        $file = 'includes.crm.mau_thong_bao_tai_khoan_nhan_vien';
+        $data = [
+            "to"        =>  "ngoctusoftware@gmail.com",
+            "email"     =>  "ngoctusoftware@gmail.com",
+            "subject"   =>  "Test gửi mail"
+        ];
+        $this->sendmail($data, $file);
     }
 }
