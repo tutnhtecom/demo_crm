@@ -54,25 +54,7 @@
 										<a class="btn ms-auto" id="btn_lead_forgot_password" data-bs-toggle="modal" data-bs-target="#lead_forgot_password_modal">
 											Quên mật khẩu?
 										</a>
-										<div class="modal fade" id="lead_forgot_password_modal" tabindex="-1" aria-labelledby="lead_forgot_password_label" aria-hidden="true">
-											<div class="modal-dialog">
-												<div class="modal-content">
-												<div class="modal-header">
-													<h1 class="modal-title fs-5" id="exampleModalLabel">Nhập Emal để cấp lại mật khẩu</h1>
-													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-												</div>
-												<div class="modal-body">
-													<div class="email_forgot_password_wapper">
-														<input type="text" id="email_forgot_password" placeholder="Nhập Email" class="form-control">
-													</div>
-												</div>
-												<div class="modal-footer">
-													<button id="forgot_password_submit" type="button" class="btn btn-primary">Gửi</button>
-													<button id="forgot_password_close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-												</div>
-												</div>
-											</div>
-										</div>
+										@include("page.forgot_password")
 									</div>
 									<p id="error-lead-login" style="display:none;"></p>
 									<p class="form-text text-dark my-3 text-center" id="divOr">                                    

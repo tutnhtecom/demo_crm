@@ -150,8 +150,7 @@ class LeadsImports implements ToModel, WithStartRow, WithChunkReading, WithHeadi
             DB::beginTransaction();  
             if (empty(array_filter($row))) {
                 return null; // Bỏ qua dòng trống
-            }     
-            // $academic_terms_id = $this->get_academic_terms_id($row);
+            }                 
             $code = $this->get_code_xlsx($row, 'TS');
             $leads_code = $this->get_code_xlsx($row, 'SV');
             $password = Str::random(16);
@@ -204,6 +203,8 @@ class LeadsImports implements ToModel, WithStartRow, WithChunkReading, WithHeadi
                 }
                 // Thêm mới niên khóa               
                 $steps = $this->get_steps($model->id); 
+                $params['file_name'] = null;
+                $file_name = $this->get_file_name($params, 'includes.crm.mau_thong_bao_dang_ky_tai_khoan_cho_sinh_vien');                
                 Leads::where('id', $model->id)->update(["steps" => $steps]);                
                 $data_sendmail = [                    
                     "title"         => "Thông tin đăng ký hồ sơ",  
@@ -217,7 +218,7 @@ class LeadsImports implements ToModel, WithStartRow, WithChunkReading, WithHeadi
                     "date_of_birth" => strlen(trim($row[3])) ? Carbon::createFromFormat('d/m/Y', trim($row[3]))->format('d/m/Y') : null,
                     "created_by"    => Auth::user()->id ?? null,
                 ];
-                SendMailJobs::dispatch($data_sendmail,'includes.mail');
+                SendMailJobs::dispatch($data_sendmail, $file_name);
             }          
             DB::commit();  
             return $model;
