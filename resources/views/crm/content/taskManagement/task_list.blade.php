@@ -175,7 +175,7 @@
                                             @include('crm.content.taskManagement.task_modal_delete')
                                         </td>
                                     </tr>
-                                @elseif(auth()->user()->id == 1 )   
+                                @elseif(auth()->user()->id == 1 || auth()->user()->employees->roles_id == 1)   
                                 <tr>
                                     <td class="align-middle px-2 px-md-4 py-4">
                                         <div class="d-flex flex-stack">
