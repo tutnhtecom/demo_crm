@@ -10557,7 +10557,7 @@
              */
             entries: {
                 _: "bản ghi",
-                1: "entry"
+                // 1: "bản ghi"
             },
 
             /**

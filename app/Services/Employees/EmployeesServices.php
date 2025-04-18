@@ -64,7 +64,7 @@ class EmployeesServices implements EmployeesInterface
     private function filter($params){        
         $model = Employees::with(["user","leads","students","roles", "tasks", "files"]);
         if(isset($params["semesters_id"])) {
-            $model = Employees::with(["kpis" => function ($q) use($params){
+            $model =  $model->with(["kpis" => function ($q) use($params){
                 $q->where('semesters_id', $params["semesters_id"]);
             }]);
         }
@@ -124,8 +124,7 @@ class EmployeesServices implements EmployeesInterface
             }                              
             
             $model = $this->filter($params);
-            $entries = $model->get();     
-            // dd($entries);       
+            $entries = $model->get();
             foreach ($entries as $entry) {   
                 $entry['roles_name']        = $entry->roles->name;                                
                 $kpis_report                = $this->get_kpis_report_for_employees($params, $entry->id);                               
