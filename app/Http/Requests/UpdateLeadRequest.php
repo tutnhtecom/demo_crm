@@ -24,16 +24,12 @@ class UpdateLeadRequest extends FormRequest
     }
 
     public function rules()
-    {        
-        
-        // $marjors_id = $this->marjors_id;
-        return [
-            // ->where('marjors_id', $marjors_id)
-            'leads_code'    => ['nullable', function ($attribute, $value, $fail) use($marjors_id){
+    {   
+        return [            
+            'leads_code'    => ['nullable', function ($attribute, $value, $fail){
                 $leads_code_unique = Leads::where('id', '!=' , $this->id)
-                                    ->where('leads_code', $value)                                    
-                                    ->count();
-                    
+                                    ->where('leads_code', $value)
+                                    ->count();                    
                 if ($leads_code_unique > 0) {
                     $fail('Mã số sinh viên ' . $value . ' đã tồn tại');
                 }
