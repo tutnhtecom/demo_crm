@@ -23,8 +23,9 @@ class EducationTypesSeeder extends Seeder
             ["id" => 4, "name"  => "Đại học"],
             ["id" => 5, "name"  => "Khác"],
         ]; 
-        foreach ($data as $item) {
-            UpdateEducationTypeJobs::dispatch($item);
-        }
+        EducationsTypes::insert($data);
+        // foreach ($data as $item) {
+        //     UpdateEducationTypeJobs::dispatch($item);
+        // }
     }
 }

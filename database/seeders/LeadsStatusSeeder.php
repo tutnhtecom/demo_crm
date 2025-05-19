@@ -23,8 +23,9 @@ class LeadsStatusSeeder extends Seeder
             ["id"=>6,"name"=>"Đã đóng học phí","color"=>"rgba(0, 150, 136, 1)","bg_color"=>"rgba(0, 150, 136, 0.15)","border_color"=>"rgba(0, 150, 136, 1)","created_at"=>"2024-10-24 05:43:07","created_by"=>"1", "is_default" => 1],
             ["id"=>7,"name"=>"Không tham gia học","color"=>"rgba(233, 30, 99, 1)","bg_color"=>"rgba(233, 30, 99, 0.15)","border_color"=>"rgba(233, 30, 99, 1)","created_at"=>"2024-10-24 05:43:07","created_by"=>"1", "is_default" => 0],
         ];
-        foreach ($data as $item) {
-            UpdateStatusSeederJobs::dispatch($item);
-        }
+        LstStatus::insert($data);
+        // foreach ($data as $item) {
+        //     UpdateStatusSeederJobs::dispatch($item);
+        // }
     }
 }

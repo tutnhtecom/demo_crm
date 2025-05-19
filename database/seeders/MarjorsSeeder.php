@@ -20,9 +20,10 @@ class MarjorsSeeder extends Seeder
             ["id" => 3, "code" => "ĐNAH", "name"  => "Đông Nam Á Học"],
             ["id" => 4, "code" => "CNDL", "name"  => "Du lịch"]
         ]; 
-        foreach ($data as $item) {
-            UpdateMajorsJob::dispatch($item);
-        }     
+        
+        // foreach ($data as $item) {
+        //     UpdateMajorsJob::dispatch($item);
+        // }     
        
     }
 }

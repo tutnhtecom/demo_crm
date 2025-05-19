@@ -23,9 +23,10 @@ class BlockAdminssionsSeeder extends Seeder
             ["id" => 5,"marjors_id" => 2, "name"=>"(A01) # Toán, Vật lý, Tiếng anh", "code"=> "CNTTA02", "subject"=> "Toán, Vật lý, Tiếng anh" ],
             ["id" => 6,"marjors_id" => 2, "name"=>"(D01) # Toán, Văn học, Tiếng anh","code"=> "CNTTD01", "subject"=> "Toán, Văn học, Tiếng anh"]
         ];
-        foreach ($data as $item) {
-            UpdateBlockAdminssionsJob::dispatch($item);
-        } 
+        BlockAdminssions::insert($data);
+        // foreach ($data as $item) {
+        //     UpdateBlockAdminssionsJob::dispatch($item);
+        // } 
         
     }
 }
