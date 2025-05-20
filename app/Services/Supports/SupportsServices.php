@@ -98,19 +98,7 @@ class SupportsServices implements SupportsInterface
             $result = [
                 "code" => 200,
                 "data" => $entries
-            ];
-            // if (count($entries) > 0) {
-            //     $result = [
-            //         "code" => 200,
-            //         "data" => $entries
-            //     ];
-            // } else {
-            //     $result = [
-            //         "code" => 422,
-            //         "message" => "Hệ thống chưa có bản ghi nào"
-            //     ];
-            // }
-            // return response()->json($result);
+            ];           
             return $result;
         } catch (\Exception $e) {            
             Log::error('Thông báo lỗi: ' . $e->getMessage() . ' tại dòng số: ' . $e->getMessage());
@@ -286,10 +274,10 @@ class SupportsServices implements SupportsInterface
         $file_name  = $this->get_file_name($params, "includes.crm.mau_thong_bao_yeu_cau_ho_tro");
         if (view()->exists($file_name)) {
             $data_sendmail = [
-                'title'         => $data["subject"],
-                'subject'       => $data["subject"],
-                'cau_hoi'       => $data["descriptions"],
-                'tra_loi'       => $data["answers"],
+                'title'         => $data["subject"] ?? 'Yêu cầu hỗ trợ',
+                'subject'       => $data["subject"] ?? 'Yêu cầu hỗ trợ',
+                'cau_hoi'       => $data["descriptions"] ?? '',
+                'tra_loi'       => $data["answers"] ?? 'Tư vấn viên đã tiếp nhận câu hỏi của bạn',
                 'to'            => $data["email"] ?? ($data["send_to"] ?? null),
                 'email'         => $data["email"] ?? ($data["send_to"] ?? null),
             ];                      
