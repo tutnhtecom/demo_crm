@@ -2,6 +2,7 @@
     <div class="headerScreen" style="height: 50px"></div>
     <div class="call-header">
         <p id="title_call"></p>
+        <h3 id="name_call" style="color:#FFF"></h3>
         <h3 id="number_call" style="color:#FFF"></h3>
     </div>
     <div class="pre-call-actions">

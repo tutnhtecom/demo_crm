@@ -1,3 +1,5 @@
+import { baseUrl, activeEmployeeApi }       from '/assets/crm/js/htecomJs/variableApi.js';
+
 // Xác thực tài khoản voip24h \\
 $(document).ready(function(){
     $.ajax({
@@ -132,11 +134,43 @@ $(document).ready(function() {
                 
                 // console.log(data);
             } else if (event === 'incomingcall') {
-                $("#answer_modal").fadeIn();
-                centerPopup($("#answer_modal"));
-                $('#title_call').text('Cuộc gọi đến')
-                $('#number_call').text(data[0].phonenumber)
-                console.log("incomingcall: ", data);
+                const url_api = "/api/leads/data";
+                const api = baseUrl + url_api;
+                const token = localStorage.getItem('jwt_token');
+
+                // console.log("incomingcall: ", data);
+
+                $.ajax({
+                    url: api,
+                    type: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    data: {
+                        "keyword" : data[0].phonenumber,
+                    },
+                    success: function (res) {
+                        if(res.code == 422){
+                            console.log("Lỗi khi call API: ", res);
+                        } else{
+                            console.log(res);
+                            
+                            $("#answer_modal").fadeIn();
+                            centerPopup($("#answer_modal"));
+                            $('#title_call').text('Cuộc gọi đến');
+                            $('#number_call').text(data[0].phonenumber);
+                            if (res.data[0]) {
+                                $('#name_call').html(`<a style="color:#fff;" href="${baseUrl}/crm/leads/detail_lead/${res.data[0].id}" target="_blank">${res.data[0].full_name}</a>`);
+                            } else {
+                                $('#name_call').text('(Không rõ)');
+                            }
+                            // $('#name_call').text(res.data[0] ? res.data[0].full_name : '(Không rõ)');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                })
     
             } else if (event === 'progress') {
                 // console.log("progress: ", data);
