@@ -140,6 +140,10 @@
     color: #7E7E7E;
 }
 
+.call-header #name_call a:hover{
+    color: #034EA2;
+}
+
 @keyframes shake {
     0% { transform: rotate(0deg); }
     25% { transform: rotate(-15deg); }
