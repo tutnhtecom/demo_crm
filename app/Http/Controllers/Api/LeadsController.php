@@ -150,4 +150,12 @@ class LeadsController extends Controller
         $params = $request->all();
         return $this->leads_interface->import_code_for_leads($params);
     }
+    public function update_employees_for_leads(Request $request){        
+        $params = $request->all();
+        return $this->leads_interface->update_employees_for_leads($params);
+    }
+    public function update_status_for_leads(Request $request){
+        $params = $request->all();
+        return $this->leads_interface->update_status_for_leads($params);
+    }
 }

@@ -31,4 +31,6 @@ interface LeadsInterface
     public function get_status_history($id);
     public function get_notification_birthday();
     public function import_code_for_leads($params);
+    public function update_employees_for_leads($params);
+    public function update_status_for_leads($params);
 }

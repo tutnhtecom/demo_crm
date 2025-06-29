@@ -119,6 +119,8 @@ Route::middleware(['api.login', 'crm.allow_access'])->group(function () {
             $router->post('/update-custom-fields/{id}', [LeadsController::class, 'update_custom_fields'])->name('Leads.update_custom_field');
             $router->get('/get-notification-birthday', [LeadsController::class, 'get_notification_birthday']);
             $router->post('/import-code-for-leads', [LeadsController::class, 'import_code_for_leads'])->name('Leads.import_code_for_leads');
+            $router->post('/update-status-for-leads', [LeadsController::class, 'update_status_for_leads'])->name('Leads.update');
+            $router->post('/update-employees-for-leads', [LeadsController::class, 'update_employees_for_leads'])->name('Leads.update');
 
         });
         // Sinh viên chính thức
