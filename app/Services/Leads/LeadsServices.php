@@ -1726,7 +1726,7 @@ class LeadsServices implements LeadsInterface
     }
 
     public function update_employees_for_leads($params)
-    {        
+    {
         try {
             if (!isset($params["leads_ids"]) || count($params["leads_ids"]) <= 0) {
                 return [
@@ -1759,41 +1759,48 @@ class LeadsServices implements LeadsInterface
             return  $result;
         } catch (\Throwable $th) {
             return [
-                    "code"      => 422,
-                    "message"   => $th -> getMessage()
-                ];
+                "code"      => 422,
+                "message"   => $th->getMessage()
+            ];
         }
     }
 
     public function update_status_for_leads($params)
     {
-        if (!isset($params["leads_ids"]) || count($params["leads_ids"]) <= 0) {
+        try {
+            if (!isset($params["leads_ids"]) || count($params["leads_ids"]) <= 0) {
+                return [
+                    "code"      => 422,
+                    "message"   => "Vui lòng chọn sinh viên"
+                ];
+            }
+            if (!isset($params["lst_status_id"]) || empty($params["lst_status_id"])) {
+                return [
+                    "code"      => 422,
+                    "message"   => "Vui lòng chọn Tình trạng tư vấn"
+                ];
+            }
+            $update = Leads::whereIn('id', $params["leads_ids"])->update([
+                "lst_status_id"    =>  $params["lst_status_id"]
+            ]);
+            $result = null;
+            if ($update > 0) {
+                $result = [
+                    "code"      => 200,
+                    "message"   => "Cập nhật thông tin thành công"
+                ];
+            } else {
+                $result = [
+                    "code"      => 422,
+                    "message"   => "Cập nhật thông tin không thành công"
+                ];
+            }
+            return  $result;
+        } catch (\Throwable $th) {
             return [
                 "code"      => 422,
-                "message"   => "Vui lòng chọn sinh viên"
+                "message"   => $th->getMessage()
             ];
         }
-        if (!isset($params["lst_status_id"]) || empty($params["lst_status_id"])) {
-            return [
-                "code"      => 422,
-                "message"   => "Vui lòng chọn Tình trạng tư vấn"
-            ];
-        }
-        $update = Leads::whereIn('id', $params["leads_ids"])->update([
-            "lst_status_id"    =>  $params["lst_status_id"]
-        ]);
-        $result = null;
-        if ($update > 0) {
-            $result = [
-                "code"      => 200,
-                "message"   => "Cập nhật thông tin thành công"
-            ];
-        } else {
-            $result = [
-                "code"      => 422,
-                "message"   => "Cập nhật thông tin không thành công"
-            ];
-        }
-        return  $result;
     }
 }
