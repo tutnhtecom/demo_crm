@@ -13,6 +13,8 @@ export const deleteMultipleLeadApi              = "/api/leads/delete-multiple";
 export const changeEmployeeForLeadApi           = "/api/leads/update-employees/";
 export const updateFieldForLeadApi              = "/api/leads/update-custom-fields/";
 export const importUpdateCodeLeadssApi          = "/api/leads/import-code-for-leads";
+export const changeMultiEmployeeApi             = "/api/leads/update-employees-for-leads";
+export const changeMultiStatusApi               = "/api/leads/update-status-for-leads";
 // Students
 export const studentDetailURL                   = "/crm/students/detail_student/";
 export const studentEditlURL                    = "/crm/students/edit_student/";

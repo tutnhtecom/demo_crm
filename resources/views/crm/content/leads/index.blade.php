@@ -463,6 +463,13 @@
         </div>
     </div>
 </div>
+
+{{-- modal change multi employee  --}}
+@include('crm.content.leads.modal.modal_change_multi_employee')
+
+{{-- modal change multi status  --}}
+@include('crm.content.leads.modal.modal_change_multi_status')
+
 <script>
     var selecter_status = ` class="lead_status_select w-auto form-select form-select-sm" data-label="Chọn trạng thái">
         @foreach ($status as $sItem)
@@ -481,6 +488,8 @@
 <script type="module" src="/assets/crm/js/htecomJs/importUpdateCodeLeads.js"></script>
 <script type="module" src="/assets/crm/js/htecomJs/import_price_list.js"></script>
 <script type="module" src="/assets/crm/js/htecomJs/import_transactions.js"></script>
+<script type="module" src="/assets/crm/js/htecomJs/Lead/change_multi_employee.js"></script>
+<script type="module" src="/assets/crm/js/htecomJs/Lead/change_multi_status.js"></script>
 <script type="module" src="{{ asset('assets/crm/js/htecomJs/importLeads.js') }}"></script>
 @include('crm.content.leads.modal.modal_import_price_list_for_leads')
 @include('crm.content.leads.modal.modal_import_transactions_for_leads')
