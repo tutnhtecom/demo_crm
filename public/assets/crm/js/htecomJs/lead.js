@@ -137,6 +137,21 @@ $(document).ready(()=>{
         });
     });
 
+    $('#search_employee_on_table_2').on('keyup', function() {
+        let searchText = $(this).val().toLowerCase();
+        $('.d-flex.flex-column.gap-1.pt-4.overflow-y-auto.mh-250px > div').each(function() {
+
+            var employeeName = $(this).find('.text-gray-800').text().toLowerCase();
+            var employeeCode = $(this).find('.text-muted').text().toLowerCase();
+            // Kiểm tra nếu phần tử chứa cụm từ tìm kiếm
+            if (employeeName.includes(searchText) || employeeCode.includes(searchText)) {
+                $(this).removeClass('hidden');
+            } else {
+                $(this).addClass('hidden');
+            }
+        });
+    });
+
     function clickMenuActive(){
         const currentUrl = window.location.href;
         $('#ti_app_sidebar_menu .menu-link').removeClass('active'); // Thêm class 'active'
@@ -501,13 +516,15 @@ $(document).ready(()=>{
                     }
                 }
             ],// Cột chức năng (thêm các nút tùy chỉnh)
-            layout: {
-                topStart: {
-                    buttons: [{
-                        extend: 'colvis',
-                        text: 'Hiển thị'
-                    }]
-                },
+                layout: {
+                    topStart: {
+                        buttons: [
+                            {
+                                extend: 'colvis',
+                                text: 'Hiển thị'
+                            }
+                        ],
+                    },
                 topEnd:
                 !employeeId ? {
                     buttons: [
@@ -623,6 +640,75 @@ $(document).ready(()=>{
                                 }
                             }
                         },
+                        {
+                            text: 'Chuyển đổi tư vấn viên',
+                            className: 'crm_change_multi_employee',
+                            action: function (e, dt, node, config) {
+                                let selected_rows = dt.rows( { selected: true } );
+                                if(selected_rows.count()){
+                                    let arr_convert_ids = [];
+                                    let selected_data = selected_rows.data();
+                                    selected_data.each(function(rowData) {
+                                        if(rowData.employees && rowData.employees.id == employeeLoginId || employeeLoginId == "" || employeeLoginRoleId == 1){
+                                            arr_convert_ids.push(rowData.id);
+                                        }
+                                    });
+                                    
+                                    let data_id = arr_convert_ids.join(',');
+                                    let firstTenItems = arr_convert_ids.slice(0, 10);
+                                    let str = firstTenItems.join(', ');
+                                    if (arr_convert_ids.length > 10) {
+                                        str += '...';
+                                    }
+                                    if(data_id != ''){
+                                        $('#btn_success_change_employee').attr('data-id', data_id);
+                                        $('#modalChangeMultiEmployee').modal('show');
+                                        $('#btn_delete_item').prop('disabled', false);
+                                    } else {
+                                        $('#deleteItemModal').modal('show');
+                                        $('#btn_delete_item').attr('disabled', 'disabled');
+                                        $('#deleteItemModal').find('.notice-text').html('<span class="text-center">Bạn không được quyền chuyển thành sinh viên với bản ghi này</span>');
+                                    }
+                                }else{
+                                    $('#convertLeadModal').modal('show');
+                                    $('#convertLeadModal').find('.notice-text').text('Vui lòng chọn ít nhất 1 bản ghi');
+                                }
+                            }
+                        },
+                        {
+                            text: 'Chuyển đổi trạng thái',
+                            className: 'crm_change_multi_status',
+                            action: function (e, dt, node, config) {
+                                let selected_rows = dt.rows( { selected: true } );
+                                if(selected_rows.count()){
+                                    let arr_convert_ids = [];
+                                    let selected_data = selected_rows.data();
+                                    selected_data.each(function(rowData) {
+                                        if(rowData.employees && rowData.employees.id == employeeLoginId || employeeLoginId == "" || employeeLoginRoleId == 1){
+                                            arr_convert_ids.push(rowData.id);
+                                        }
+                                    });
+                                    
+                                    let data_id = arr_convert_ids.join(',');
+                                    let firstTenItems = arr_convert_ids.slice(0, 10);
+                                    let str = firstTenItems.join(', ');
+                                    if (arr_convert_ids.length > 10) {
+                                        str += '...';
+                                    }
+                                    if(data_id != ''){
+                                        $('#btn_success_change_status').attr('data-id', data_id);
+                                        $('#modalChangeMultiStatus').modal('show');
+                                    } else {
+                                        $('#deleteItemModal').modal('show');
+                                        $('#btn_delete_item').attr('disabled', 'disabled');
+                                        $('#deleteItemModal').find('.notice-text').html('<span class="text-center">Bạn không được quyền chỉnh sửa bản ghi này</span>');
+                                    }
+                                }else{
+                                    $('#convertLeadModal').modal('show');
+                                    $('#convertLeadModal').find('.notice-text').text('Vui lòng chọn ít nhất 1 bản ghi');
+                                }
+                            }
+                        }
                         // {
                         //     text: 'Cập nhật Mã SV',
                         //     className: 'crm_student_update_code',
