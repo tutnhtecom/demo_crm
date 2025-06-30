@@ -1777,7 +1777,7 @@ class LeadsServices implements LeadsInterface
             if (!isset($params["lst_status_id"]) || empty($params["lst_status_id"])) {
                 return [
                     "code"      => 422,
-                    "message"   => "Vui lòng chọn Tình trạng tư vấn"
+                    "message"   => "Vui lòng chọn một mức độ tiềm năng"
                 ];
             }
             $update = Leads::whereIn('id', $params["leads_ids"])->update([
