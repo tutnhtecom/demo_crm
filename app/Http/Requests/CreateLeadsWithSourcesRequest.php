@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Leads;
+use App\Models\LeadsHistory;
 use App\Models\User;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
@@ -79,7 +80,19 @@ class CreateLeadsWithSourcesRequest extends FormRequest
 
     protected function failedValidation(Validator $validator)
     {
-        $errors = $validator->errors(); 
-        throw new HttpResponseException(response()->json([ 'code' => '422', 'data' => $errors ]));            
+        $data = $this->get_data_leads($this);
+        LeadsHistory::create($data);
+        $errors = $validator->errors();
+        throw new HttpResponseException(response()->json(['code' => '422', 'data' => $errors]));
+    }
+    function get_data_leads($params)
+    {
+        $data = [
+            "email"                     => $params->email ?? '',
+            "full_name"                 => $params->full_name ?? '',                        
+            "phone"                     => $params->phone ?? '',            
+            "sources_register_failed"   => "Landing Page"
+        ];
+        return $data;
     }
 }

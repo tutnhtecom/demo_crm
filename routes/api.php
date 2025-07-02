@@ -67,11 +67,13 @@ Route::group([
     // Thông tin thi sinh
     $router->get('/thong-tin-sinh-vien/{id}', [LeadsController::class, 'details']);
     // Api đăng ký
-    $router->post('/dang-ky/{id}', [LeadsController::class, 'register_with_sources']);
+    
+    $router->post('/dang-ky', [LeadsController::class, 'register_with_sources']);
     // Lịch sử thay đổi trạng thái
     $router->get('/history/{id}', [LeadsController::class, 'get_status_history']);
     
     $router->post('/forgot-password', [LeadsController::class, 'forgot_password'])->name('Leads.forgotpassword');
+
 });
 
 

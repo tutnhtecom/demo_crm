@@ -60,6 +60,14 @@ trait General
         }  
         return $str;
     }
+    function getInitials($name) {
+        $words = explode(' ', trim($name));
+        $initials = '';
+        foreach ($words as $word) {
+            $initials .= strtoupper(substr($word, 0, 1));
+        }
+        return $initials;
+    }
     function remove_prefix($str){
         $new_str = null;              
         if(strlen(strpos(strtoupper($str), "TINH")) > 0) {

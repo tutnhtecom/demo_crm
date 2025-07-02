@@ -35,6 +35,7 @@ use App\Repositories\EmployeesRepository;
 use App\Repositories\FamilyRepository;
 use App\Repositories\FilesRepository;
 use App\Repositories\LeadsRepository;
+use App\Repositories\MarjorsRepository;
 use App\Repositories\ScoreAdminssionRepository;
 use App\Repositories\SourcesRepository;
 use App\Repositories\StudentsRepository;
@@ -69,6 +70,7 @@ class LeadsServices implements LeadsInterface
     protected $employee;
     protected $tags_repository;
     protected $lst_status_history;
+    protected $marjors_repository;
     public function __construct(
         LeadsRepository $leads_repository,
         DegreeRepository $degree_repository,
@@ -83,7 +85,8 @@ class LeadsServices implements LeadsInterface
         Excel $excel,
         EmployeesRepository $employee,
         TagsRepository $tags_repository,
-        LstStatusHistory $lst_status_history
+        LstStatusHistory $lst_status_history,
+        MarjorsRepository $marjors_repository
     ) {
         $this->leads_repository = $leads_repository;
         $this->degree_repository = $degree_repository;
@@ -99,6 +102,7 @@ class LeadsServices implements LeadsInterface
         $this->employee = $employee;
         $this->tags_repository = $tags_repository;
         $this->lst_status_history = $lst_status_history;
+        $this->marjors_repository = $marjors_repository;
     }
     public function create_sources($name)
     {
@@ -182,15 +186,55 @@ class LeadsServices implements LeadsInterface
             ];
         }
     }
-    public function register_with_sources($params, $sources)
+    public function get_sources_id($name) {        
+        $sources_id = null;
+        $model = Sources::where('name', 'like', '%'. $name .'%')->first();        
+        if(isset($model->id)) {
+            $sources_id = $model->id;
+        } else {
+            $data = [ "name"  =>  $name ];
+            $sources = $this->s_repository->create($data);
+            if(isset($sources->id)) {
+                $sources_id = $sources->id;
+            }
+        }
+        return $sources_id;
+    }
+        public function get_marjors_id($name) {        
+        $marjors_id = null;
+        $model = Marjors::where('name', 'like', '%'. $name .'%')->first();        
+        if(isset($model->id)) {
+            $marjors_id = $model->id;
+        } else {
+            $data = [ 
+                "name"  => $name,
+                "code"  => strtolower($this->getInitials($name))
+            ];            
+            $marjors = $this->marjors_repository->create($data);
+            if(isset($marjors->id)) {
+                $marjors_id = $marjors->id;
+            }
+        }
+        return $marjors_id;
+    }
+    public function register_with_sources($params)
     {
-        try {
-            DB::beginTransaction();
-            // $sources_id = $this->create_sources($sources);
-            $params['sources_id'] = $sources;
-            $create = $this->_create($params);
+         try {
+            DB::beginTransaction();            
+            $params['sources_id'] = $this->get_sources_id($params['sources_name']);
+            $params['marjors_id'] = $this->get_marjors_id($params['marjors_name']);
+            $data = [
+                "email"         => $params["email"],
+                "full_name"     => $params["full_name"],
+                "phone"         => $params["phone"],
+                "marjors_id"    => $params["marjors_id"],                
+                "sources_id"    => $params["sources_id"],
+                "lst_status_id" => LstStatus::first()->id,
+                "assignments_id"=> $this->get_first_employees() 
+            ];                                    
+            $create = $this->leads_repository->create($data);               
             $response = null;
-            if (isset($create->id)) {
+            if(isset($create->id)) {
                 $response = [
                     "code"      => 200,
                     "message"   => "Sinh viên đăng ký thành công"

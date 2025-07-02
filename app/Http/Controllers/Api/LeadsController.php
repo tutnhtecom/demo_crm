@@ -74,9 +74,9 @@ class LeadsController extends Controller
         $params = $request->all();
         return $this->sp_interface->create($params);
     }
-    public function register_with_sources(CreateLeadsWithSourcesRequest $request, $sources){
+    public function register_with_sources(CreateLeadsWithSourcesRequest $request){
         $params = $request->all();
-        return $this->leads_interface->register_with_sources($params, $sources);
+        return $this->leads_interface->register_with_sources($params);
     }
     // Quên mật khẩu
     public function forgot_password(ForgotPasswordRequest $request){

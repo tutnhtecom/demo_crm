@@ -11,7 +11,7 @@ interface LeadsInterface
     public function family($params, $id); 
     public function score($params, $id);    
     public function confirm($params, $id);  
-    public function register_with_sources($params, $sources);   
+    public function register_with_sources($params);   
     public function forgot_password($param);
     //crm
     public function data($params); 
