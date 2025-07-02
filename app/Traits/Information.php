@@ -115,9 +115,11 @@ trait Information
         return $steps;
     }   
     function get_first_employees_id(){
-        $data = $this->count_employees_in_leads();        
-        $min = array_keys($data, min($data));        
-        return $min[0];       
+        $data = $this->count_employees_in_leads();   
+        if(count($data) > 0) {
+            $min = array_keys($data, min($data));        
+        }
+        return $min[0] ?? '';       
     }
     function count_employees_in_leads(){
         $model = Employees::with(['leads'])

@@ -397,7 +397,7 @@ class LeadsServices implements LeadsInterface
             "parent_id"             => isset($data_parent_id["parent_id"]) ? $data_parent_id["parent_id"] : null,
             "d_email_status"        => isset($data_parent_id["d_email_status"]) ? $data_parent_id["d_email_status"] : null,
         ];
-
+        dd($data);
         $leads = $this->leads_repository->create($data);
         if (isset($leads->id)) {
             $this->create_new_notification($leads);

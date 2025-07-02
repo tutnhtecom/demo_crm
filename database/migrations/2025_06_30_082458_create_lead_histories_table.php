@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('leads_histories', function (Blueprint $table) {
+          Schema::create('leads_histories', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('parent_id')->nullable(); // bigint(20) unsigned
             $table->string('full_name')->nullable(TRUE)->default(NULL)->comment('Lưu họ tên của Thí sinh, sinh viên');
@@ -68,6 +68,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lead_history');
+        Schema::dropIfExists('leads_histories');
     }
 };

@@ -3,8 +3,10 @@
 namespace App\Http\Requests;
 
 use App\Models\Leads;
+use App\Models\LeadsHistory;
 use App\Models\User;
 use App\Traits\General;
+use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -100,7 +102,26 @@ class RegisterProfileRequest extends FormRequest
 
     protected function failedValidation(Validator $validator)
     {
+        $data = $this->get_data_leads($this);
+        LeadsHistory::create($data);         
         $errors = $validator->errors(); 
         throw new HttpResponseException(response()->json([ 'code' => '422', 'data' => $errors  ])); 
+    }
+    function get_data_leads($params) {
+        $data = [
+            "email"                     => $params->email,
+            "full_name"                 => $params->full_name,
+            "date_of_birth"             => Carbon::parse($params['date_of_birth']),
+            "gender"                    => $params->gender,
+            "phone"                     => $params->phone,
+            "identification_card"       => $params->identification_card,
+            "place_of_birth"            => $params->place_of_birth,
+            "place_of_wrk_lrn"          => $params->place_of_wrk_lrn,
+            "sources_id"                => $params->sources_id,
+            "marjors_id"                => $params->marjors_id,
+            "leads_code"                => $params->leads_code,
+            "sources_register_failed"   => "Nguồn đăng ký hồ sơ"
+        ];
+        return $data;
     }
 }
